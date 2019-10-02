@@ -1,8 +1,100 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Nunito', 'Segoe UI', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900&display=swap");
+:root {
+  --color-background: #2c313c;
+  --color-container: #282c34;
+  --color-topBar: #21252b;
+  --color-text-1: #ccc;
+  --color-text-2: #bbb;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+.page {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: max-content max-content;
+      grid-template-rows: -webkit-max-content -webkit-max-content;
+      grid-template-rows: max-content max-content;
+  position: relative;
+  width: 100vw;
+}
+
+.top-bar {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-topBar);
+  padding: 1.2rem 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: max-content max-content max-content 1fr;
+      grid-template-columns: -webkit-max-content -webkit-max-content -webkit-max-content 1fr;
+      grid-template-columns: max-content max-content max-content 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 60rem) {
+  .top-bar {
+    -ms-grid-columns: max-content 1fr;
+        grid-template-columns: -webkit-max-content 1fr;
+        grid-template-columns: max-content 1fr;
+    padding: 1.2rem 3rem;
+  }
+}
+
+.top-bar__logo {
+  color: var(--color-text-1);
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+@media (max-width: 60rem) {
+  .top-bar__logo {
+    display: none;
+  }
+}
+
+.top-bar__border {
+  width: 0.4rem;
+  height: 4rem;
+  background-color: var(--color-background);
+  margin: 0 2.5rem;
+  border-radius: 10rem;
+}
+
+@media (max-width: 60rem) {
+  .top-bar__border {
+    display: none;
+  }
+}
+
+.top-bar__title {
+  color: var(--color-text-1);
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.top-bar__children {
+  display: -ms-grid;
+  display: grid;
+  justify-items: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=index.css.map */
