@@ -1,7 +1,6 @@
 {
     "name": "functury",
     "version": "0.1.0",
-    "private": true,
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.25",
         "@fortawesome/free-regular-svg-icons": "^5.11.2",
@@ -16,7 +15,8 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "deploy": "firebase deploy"
     },
     "eslintConfig": {
         "extends": "react-app"
