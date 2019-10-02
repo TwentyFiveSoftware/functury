@@ -38,7 +38,7 @@ body {
 	width: 100%;
 	height: auto;
 	background-color: var(--color-topBar);
-	padding: 1.2rem 5rem;
+	padding: 1.7rem 5rem;
 	display: grid;
 	grid-template-columns: max-content max-content max-content 1fr;
 	align-items: center;
@@ -80,5 +80,46 @@ body {
 		display: grid;
 		justify-items: right;
 		align-items: center;
+	}
+}
+
+.function-list-container {
+	display: flex;
+	width: 100vw;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 3rem;
+
+	&__function {
+		max-width: 95%;
+		width: 40rem;
+		background-color: var(--color-container);
+		padding: 1rem 3rem;
+		display: grid;
+		grid-template-columns: 1fr max-content;
+		column-gap: 2.5rem;
+		align-items: center;
+		justify-items: right;
+		cursor: pointer;
+		transition: 0.3s ease-out;
+
+		&:hover {
+			transform: scale(1.02);
+		}
+	}
+
+	&__name {
+		text-align: right;
+		font-size: 3rem;
+		color: var(--color-text-1);
+		font-weight: 600;
+		line-height: 0.9;
+	}
+
+	&__image {
+		width: 14rem;
+		height: 14rem;
+		background-size: cover;
+		background-position: center center;
 	}
 }
