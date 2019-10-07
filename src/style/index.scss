@@ -16,6 +16,7 @@ $breakPhone: 470px;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Nunito', 'Segoe UI', sans-serif;
+	text-decoration: none;
 }
 
 html {
@@ -53,6 +54,7 @@ body {
 		color: var(--color-text-1);
 		font-size: 2.5rem;
 		font-weight: 900;
+		height: 4rem;
 
 		@media (max-width: $breakTablet) {
 			display: none;
