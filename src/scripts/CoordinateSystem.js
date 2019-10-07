@@ -45,18 +45,18 @@ export default class CoordinateSystem {
 
         //
 
-        let zoom = 1;
+        this.zoom = 1;
         let zoomMultiplicator = 0.0005;
 
         this.CTX.canvas.addEventListener('mousewheel', e => {
             e.preventDefault();
 
-            zoom -= e.deltaY * zoomMultiplicator;
+            this.zoom -= e.deltaY * zoomMultiplicator;
 
-            if (zoom <= 0.25) zoom = 0.25;
-            if (zoom >= 16) zoom = 16;
+            if (this.zoom <= 0.25) this.zoom = 0.25;
+            if (this.zoom >= 16) this.zoom = 16;
 
-            this.scale(zoom);
+            this.scale(this.zoom);
         });
 
         //
