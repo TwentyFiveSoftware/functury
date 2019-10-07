@@ -175,4 +175,23 @@ body {
     height: 12rem;
   }
 }
+
+.content {
+  width: 100vw;
+  height: auto;
+  padding: 3rem 4rem;
+}
+
+.panel {
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: var(--color-container);
+}
+
+.panel.headline {
+  text-align: center;
+  font-size: 4rem;
+  color: var(--color-text-1);
+  font-weight: bold;
+}
 /*# sourceMappingURL=index.css.map */

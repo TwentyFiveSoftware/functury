@@ -12,12 +12,12 @@ export default class App extends Component {
     state = {
         functions: [
             {
-                id: 1,
+                id: 'linear-function',
                 name: 'Lineare Funktionen',
                 image: IMG_linearFunction,
                 grade: 8,
                 content: (
-                    <Panel>Lineare Funktionen</Panel>
+                    <Panel classes={['headline']}>Lineare Funktionen</Panel>
                 )
             }
         ]
@@ -27,7 +27,7 @@ export default class App extends Component {
         return (
             <Router>
                 <Route path='/' exact component={props => <FrontPage functions={this.state.functions} {...props} />} />
-                <Route path='/function/:id' component={props => <FunctionPage {...props} />} />
+                <Route path='/function/:id' component={props => <FunctionPage functions={this.state.functions} {...props} />} />
             </Router>
         );
     }

@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import TopBar from './components/TopBar';
 
 export default class FunctionPage extends Component {
     render() {
-        console.log(this.props);
+        let f = this.props.functions.find(f => f.id === this.props.match.params.id);
 
-        return (
-            <div className="page">
-                <TopBar title="" border={false}></TopBar>
-                <div className="content">
-
+        if (f !== undefined)
+            return (
+                <div className="page">
+                    <TopBar title="" border={false}></TopBar>
+                    <div className="content">
+                        {f.content}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+
+        else return <Redirect to="/" />
     }
 }
