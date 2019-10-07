@@ -6,8 +6,8 @@ import IMG_linearFunction from './assets/linear_function.png';
 import Panel from './components/Panel';
 import FunctionPlotter from './components/FunctionPlotter';
 
-import FrontPage from './FrontPage';
-import FunctionPage from './FunctionPage';
+import FrontPage from './pages/FrontPage';
+import FunctionPage from './pages/FunctionPage';
 
 export default class App extends Component {
     state = {

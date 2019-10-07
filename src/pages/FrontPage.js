@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import TopBar from './components/TopBar';
+import TopBar from '../components/TopBar';
 
 export default class FrontPage extends Component {
     render() {
