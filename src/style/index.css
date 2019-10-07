@@ -31,7 +31,7 @@ body {
       grid-template-rows: -webkit-max-content -webkit-max-content;
       grid-template-rows: max-content max-content;
   position: relative;
-  width: 100vw;
+  width: 100%;
 }
 
 .top-bar {
@@ -104,7 +104,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100vw;
+  width: 100%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -177,14 +177,23 @@ body {
 }
 
 .content {
-  width: 100vw;
+  width: 100%;
   height: auto;
-  padding: 3rem 4rem;
+  padding: 5rem 7rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  row-gap: 4rem;
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .panel {
   width: 100%;
-  padding: 2rem 1rem;
   background-color: var(--color-container);
 }
 
@@ -193,5 +202,24 @@ body {
   font-size: 4rem;
   color: var(--color-text-1);
   font-weight: bold;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  padding: 3rem 1rem;
+}
+
+.function-plotter {
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  place-content: center center;
+}
+
+.function-plotter canvas {
+  width: 600;
+  height: 530;
+  background-color: var(--color-container);
 }
 /*# sourceMappingURL=index.css.map */

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './style/index.css';
 
-import Panel from './components/Panel';
 import IMG_linearFunction from './assets/linear_function.png';
+import Panel from './components/Panel';
+import FunctionPlotter from './components/FunctionPlotter';
 
 import FrontPage from './FrontPage';
 import FunctionPage from './FunctionPage';
@@ -17,7 +18,10 @@ export default class App extends Component {
                 image: IMG_linearFunction,
                 grade: 8,
                 content: (
-                    <Panel classes={['headline']}>Lineare Funktionen</Panel>
+                    <React.Fragment>
+                        <Panel classes={['headline']}>Lineare Funktionen</Panel>
+                        <Panel><FunctionPlotter /></Panel>
+                    </React.Fragment>
                 )
             }
         ]
