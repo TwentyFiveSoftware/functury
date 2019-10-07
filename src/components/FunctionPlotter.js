@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CoordinateSystem from '../scripts/FunctionPlotterScript';
+import CoordinateSystem from '../scripts/CoordinateSystem';
 
 export default class FunctionPlotter extends Component {
     componentDidMount() {
