@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './style/index.css';
 
 import Panel from './components/Panel';
@@ -26,8 +26,11 @@ export default class App extends Component {
     render() {
         return (
             <Router>
-                <Route path='/' exact component={props => <FrontPage functions={this.state.functions} {...props} />} />
-                <Route path='/function/:id' component={props => <FunctionPage functions={this.state.functions} {...props} />} />
+                <Switch>
+                    <Route path='/' exact component={props => <FrontPage functions={this.state.functions} {...props} />} />
+                    <Route path='/function/:id' component={props => <FunctionPage functions={this.state.functions} {...props} />} />
+                    <Redirect to="/" />
+                </Switch>
             </Router>
         );
     }
