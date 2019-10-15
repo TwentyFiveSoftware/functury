@@ -9,10 +9,17 @@ export default class FunctionPlotter extends Component {
         this.cosy = new CoordinateSystem(100, 100, { x: 10, y: 20 }, ctx);
         // cosy.plot(x => 2 * Math.tanh(0.5 * x));
         // cosy.plot(x => 1 / x);
-        this.cosy.plot(x => 0.75 * x);
+        // this.cosy.plot(x => 0.75 * x);
+
+        if (this.props.equation !== undefined)
+            this.cosy.plot(this.props.equation);
 
         this.resizeCanvas();
         window.addEventListener('resize', () => this.resizeCanvas());
+    }
+
+    componentDidUpdate() {
+        this.cosy.redraw();
     }
 
     resizeCanvas = () => {
