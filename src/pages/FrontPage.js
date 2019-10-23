@@ -7,16 +7,19 @@ export default class FrontPage extends Component {
     render() {
         return (
             <div className="page">
-                <TopBar title='Funktionen | Übersicht' border={true}></TopBar>
-                <div className="function-list-container">
+                <TopBar page="front" />
+                <div className="content">
                     {(this.props.functions.map((f, index) => (
-                        <Link className="function-list-container__function" key={index} to={`/function/${f.id}`}>
-                            <div className="function-list-container__name">{f.name}</div>
-                            <div className="function-list-container__image" style={{ backgroundImage: `url(${f.image})` }} alt=" " />
+                        <Link className="function-container" key={index} to={`/function/${f.id}`}>
+                            <div className="function-container__left">
+                                <div className="function-container__name">Lineare Funktionen</div>
+                                <div className="function-container__formula">y = mx + t</div>
+                            </div>
+                            {f.svg}
                         </Link>
                     )))}
                 </div>
-            </div>
+            </div >
         );
     }
 }

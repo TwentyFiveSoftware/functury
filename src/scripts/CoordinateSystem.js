@@ -69,11 +69,11 @@ export default class CoordinateSystem {
         this.drawGrid();
 
         // STYLE SETTINGS
-        this.CTX.strokeStyle = '#C2C5CC';
-        this.CTX.fillStyle = '#C2C5CC';
-        this.CTX.font = '14px Nunito';
+        this.CTX.strokeStyle = '#CCCCCC';
+        this.CTX.fillStyle = '#CCCCCC';
+        this.CTX.font = '15px Nunito';
         this.CTX.textAlign = 'center';
-        this.CTX.lineWidth = 1;
+        this.CTX.lineWidth = 3;
 
         // DRAW AXIS
         this.drawLine(this.WIDTH / 2, 0, this.WIDTH / 2, this.HEIGHT);
@@ -121,8 +121,8 @@ export default class CoordinateSystem {
     }
 
     drawGrid() {
-        this.CTX.strokeStyle = '#2C313C';
-        this.CTX.lineWidth = 2;
+        this.CTX.strokeStyle = '#F4F4F4';
+        this.CTX.lineWidth = 3;
 
         for (let x = -this.xUnits * this.UNIT_SCALE; x <= this.xUnits * this.UNIT_SCALE; x += this.UNIT_SCALE) {
             let realX = this.getRealCoords(x, 0).x;
@@ -161,13 +161,16 @@ export default class CoordinateSystem {
     }
 
     drawGraph(f) {
-        this.CTX.strokeStyle = '#C24034';
-        this.CTX.lineWidth = 2;
+        this.CTX.strokeStyle = '#8BC24A';
+        this.CTX.lineWidth = 3;
 
         let firstPointDrawn = false;
 
         for (let x = -(this.xUnits + 1) * this.UNIT_SCALE; x <= (this.xUnits + 1) * this.UNIT_SCALE; x += this.PLOT_STEPS_PER_UNIT_PERCENTAGE * this.UNIT_SCALE) {
             let point = this.getRealCoords(x, f(x));
+
+            if (!(point.y >= this.GRID_BORDER && point.y <= this.HEIGHT - this.GRID_BORDER))
+                continue;
 
             if (!firstPointDrawn) {
                 this.CTX.beginPath();

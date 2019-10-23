@@ -4,18 +4,19 @@ import CoordinateSystem from '../scripts/CoordinateSystem';
 
 export default class FunctionPlotter extends Component {
     componentDidMount() {
-        const ctx = document.querySelector('.function-plotter-canvas').getContext('2d');
+        const ctx = document.querySelector('.function-plotter__canvas').getContext('2d');
 
-        this.cosy = new CoordinateSystem(100, 100, { x: 10, y: 20 }, ctx);
-        // cosy.plot(x => 2 * Math.tanh(0.5 * x));
-        // cosy.plot(x => 1 / x);
-        // this.cosy.plot(x => 0.75 * x);
+        this.cosy = new CoordinateSystem(100, 100, { x: 12, y: 20 }, ctx, 1, 50, 0.005, 10, { width: 15, height: 10 }, { x: 12, y: 21 }, 20);
 
         if (this.props.equation !== undefined)
             this.cosy.plot(this.props.equation);
 
         this.resizeCanvas();
-        window.addEventListener('resize', () => this.resizeCanvas());
+        window.addEventListener('resize', this.resizeCanvas);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resizeCanvas);
     }
 
     componentDidUpdate() {
@@ -24,9 +25,9 @@ export default class FunctionPlotter extends Component {
 
     resizeCanvas = () => {
         let canvasContainer = document.querySelector('.function-plotter');
-        let canvas = document.querySelector('.function-plotter-canvas');
+        let canvas = document.querySelector('.function-plotter__canvas');
         let width = Math.floor(canvasContainer.clientWidth);
-        let height = Math.floor(width * (53 / 60));
+        let height = Math.floor(width * 0.76);
 
         canvas.width = width;
         canvas.height = height;
@@ -41,7 +42,7 @@ export default class FunctionPlotter extends Component {
     render() {
         return (
             <div className="function-plotter">
-                <canvas className="function-plotter-canvas"></canvas>
+                <canvas className="function-plotter__canvas"></canvas>
             </div>
         );
     }
