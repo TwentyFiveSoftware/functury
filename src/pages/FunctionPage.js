@@ -153,7 +153,7 @@ class Tab2 extends Component {
                                     <tr>
                                         <td><div className="text text--dark-bold">1.</div></td>
                                         <td className="text--padding-horizontal">
-                                            <table className="equation text">
+                                            <table className="equation text equation--large-spacing">
                                                 <tbody>
                                                     <tr>
                                                         <td>m</td>
