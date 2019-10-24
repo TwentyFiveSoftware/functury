@@ -115,6 +115,7 @@ body {
 			font-size: 1.4rem;
 			color: var(--color-text-normal);
 			transition: 0.2s;
+			user-select: none;
 
 			@media (min-width: $break-tablet) {
 				margin: 0 3rem;
@@ -249,7 +250,7 @@ body {
 	}
 }
 
-.graph-page {
+.info-page {
 	display: flex;
 	padding: 3rem 1.5rem;
 	flex-direction: column;
@@ -266,6 +267,7 @@ body {
 		grid-template-columns: 1fr 1fr;
 		max-width: 140rem;
 		column-gap: 4rem;
+		align-items: flex-start;
 	}
 }
 
@@ -281,6 +283,10 @@ body {
 	&--large-padding {
 		padding: 2rem 3rem;
 	}
+
+	&--large-padding-vertical {
+		padding: 2rem 2rem;
+	}
 }
 
 .text {
@@ -291,6 +297,7 @@ body {
 
 	&--center {
 		text-align: center;
+		margin: auto;
 	}
 
 	&--semi-big {
@@ -315,6 +322,68 @@ body {
 		color: var(--color-text-accent);
 		font-weight: 600;
 	}
+
+	&--multiline {
+		line-height: 1;
+	}
+
+	&--dark-bold {
+		color: var(--color-text-dark);
+		font-weight: bold;
+	}
+
+	&--inline {
+		display: inline-block;
+	}
+
+	&--margin-right {
+		margin-right: 1rem;
+	}
+
+	&--grid-middle {
+		display: grid;
+		grid-template-columns: max-content max-content;
+		align-items: center;
+	}
+
+	&--border-bottom-dark {
+		border-bottom: 0.2rem solid var(--color-text-dark);
+	}
+
+	&--border-bottom {
+		border-bottom: 0.2rem solid var(--color-text-normal);
+	}
+
+	&--padding-horizontal {
+		padding: 0 0.5rem;
+	}
+
+	&--padding-vertical {
+		padding: 0.5rem 0;
+	}
+
+	&--pos-grid {
+		display: grid;
+		justify-items: center;
+	}
+}
+
+.list {
+	width: 100%;
+	text-align: left;
+
+	& > tbody {
+		& > tr > td {
+			padding-top: 2rem;
+
+			&:first-child {
+				width: 1%;
+				padding-right: 1rem;
+				padding-top: 1.7rem;
+				vertical-align: top;
+			}
+		}
+	}
 }
 
 .function-plotter {
@@ -330,6 +399,10 @@ body {
 
 .empty-space {
 	height: 2rem;
+
+	&--small {
+		height: 1rem;
+	}
 }
 
 .slider {
@@ -365,5 +438,25 @@ body {
 			border: 0.15rem solid var(--color-text-light);
 			border-radius: 50%;
 		}
+	}
+}
+
+.equation {
+	width: max-content;
+	line-height: 1;
+
+	tr td:nth-child(1) {
+		text-align: right;
+		width: 1%;
+	}
+
+	tr td:nth-child(2) {
+		text-align: center;
+		width: 1%;
+		padding: 0 0.5rem;
+	}
+
+	tr td:nth-child(4) {
+		padding-left: 4rem;
 	}
 }

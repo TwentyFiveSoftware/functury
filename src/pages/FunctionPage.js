@@ -43,8 +43,8 @@ class Tab1 extends Component {
             <div>
                 <TopBar page="function" func={this.props.func} tab={'1'} />
 
-                <div className="graph-page">
-                    <div className="panel left">
+                <div className="info-page">
+                    <div className="panel">
                         <FunctionPlotter equation={x => this.state.m * x + this.state.t} />
                     </div>
 
@@ -99,8 +99,171 @@ class Tab2 extends Component {
             <div>
                 <TopBar page="function" func={this.props.func} tab={'2'} />
 
-                {/* Besonderheiten */}
-            </div>
+                <div className="info-page">
+                    <div className="panel panel--large-padding-vertical">
+                        <div className="text text--headline">Steigung berechnen</div>
+                        <div className="empty-space empty-space--small"></div>
+                        <div className="text text--multiline">Berechnung der dazugehörigen Geradengleichung aus zwei gegebenen Punkten:</div>
+
+                        <table className="list">
+                            <tbody>
+                                <tr>
+                                    <td><div className="text text--dark-bold">1.</div></td>
+                                    <td>
+                                        <div className="text text--multiline">Berechne die <b>Steigung</b> m mithilfe der beiden Punkte:</div>
+                                        <div className="text text--pos-grid text--padding-vertical">
+                                            <div className="text--grid-middle">
+                                                <div className="text text text--margin-right text--dark-bold">m = </div>
+                                                <div>
+                                                    <div className="text text--dark-bold text--border-bottom-dark text--padding-horizontal">y<sub>2</sub> - y<sub>1</sub></div>
+                                                    <div className="text text--dark-bold text--center">x<sub>2</sub> - x<sub>1</sub></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div className="text text--dark-bold">2.</div></td>
+                                    <td><div className="text text--multiline">
+                                        Setze <b>m</b> und den x- und y-Wert von einer der beiden Punkte in die Gleichung <b>y = mx + t</b> ein und löse diese nach t auf.</div></td>
+                                </tr>
+                                <tr>
+                                    <td><div className="text text--dark-bold">3.</div></td>
+                                    <td>
+                                        <div className="text text--multiline">Setze die Funktionsgleichung aus dem berechneten m und t zu zusammen.</div>
+                                        <div className="text text--center">
+                                            {/* <div className="text text--inline text--margin-right">-></div> */}
+                                            <div className="text text--dark-bold text--inline">f(x) = mx + t</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <div className="panel panel--large-padding-vertical">
+                            <div className="text text--headline">Beispiel - Steigung berechnen</div>
+                            <div className="empty-space empty-space--small"></div>
+                            <div className="text text--inline text--margin-right">P(2 / 3,5)</div>
+                            <div className="text text--inline">Q(-1 / 2,75)</div>
+
+                            <table className="list">
+                                <tbody>
+                                    <tr>
+                                        <td><div className="text text--dark-bold">1.</div></td>
+                                        <td className="text--padding-horizontal">
+                                            <table className="equation text">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>m</td>
+                                                        <td>=</td>
+                                                        <td>
+                                                            <div className="text--grid-middle">
+                                                                <div>
+                                                                    <div className="text text--border-bottom text--padding-horizontal">y<sub>2</sub> - y<sub>1</sub></div>
+                                                                    <div className="text text--center">x<sub>2</sub> - x<sub>1</sub></div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>=</td>
+                                                        <td>
+                                                            <div className="text--grid-middle">
+                                                                <div>
+                                                                    <div className="text text--border-bottom text--padding-horizontal">2,75 - 3,5</div>
+                                                                    <div className="text text--center">-1 - 2</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>=</td>
+                                                        <td>
+                                                            <div className="text--grid-middle">
+                                                                <div>
+                                                                    <div className="text text--border-bottom text--padding-horizontal">-0,75</div>
+                                                                    <div className="text text--center">-3</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>=</td>
+                                                        <td>0,25</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div className="text text--dark-bold">2.</div></td>
+                                        <td className="text--padding-horizontal">
+                                            <table className="equation text">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>y</td>
+                                                        <td>=</td>
+                                                        <td>mx + t</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3,5</td>
+                                                        <td>=</td>
+                                                        <td>0,25 ∙ 2 + t</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3,5</td>
+                                                        <td>=</td>
+                                                        <td>0,5 + t</td>
+                                                        <td>| -0,5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>=</td>
+                                                        <td>t</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><div className="text text--dark-bold">3.</div></td>
+                                        <td className="text--padding-horizontal">
+                                            <table className="equation text">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>f(x)</td>
+                                                        <td>=</td>
+                                                        <td>mx + t</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>f(x)</td>
+                                                        <td>=</td>
+                                                        <td>0,25x + 3</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div >
         );
     }
 }

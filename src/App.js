@@ -7,8 +7,6 @@ import { ReactComponent as LinearFunctionSVG } from './assets/linear-function.sv
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
 
-// import LinearFunction from './pages/LinearFunction';
-
 export default class App extends Component {
     state = {
         functions: [
