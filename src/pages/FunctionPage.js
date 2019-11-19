@@ -263,7 +263,7 @@ class Tab2 extends Component {
                         </div>
                     </div>
                 </div>
-            </div >
+            </div>
         );
     }
 }

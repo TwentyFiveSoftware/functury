@@ -46,12 +46,24 @@ export default class CoordinateSystem {
         //
 
         this.zoom = 1;
-        let zoomMultiplicator = 0.0005;
 
         this.CTX.canvas.addEventListener('mousewheel', e => {
             e.preventDefault();
 
+            let zoomMultiplicator = 0.0005;
             this.zoom -= e.deltaY * zoomMultiplicator;
+
+            if (this.zoom <= 0.25) this.zoom = 0.25;
+            if (this.zoom >= 16) this.zoom = 16;
+
+            this.scale(this.zoom);
+        });
+
+        this.CTX.canvas.addEventListener('DOMMouseScroll', e => {
+            e.preventDefault();
+
+            let zoomMultiplicator = 0.01;
+            this.zoom -= e.detail * zoomMultiplicator;
 
             if (this.zoom <= 0.25) this.zoom = 0.25;
             if (this.zoom >= 16) this.zoom = 16;
