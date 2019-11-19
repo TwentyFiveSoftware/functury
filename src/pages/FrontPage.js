@@ -12,8 +12,8 @@ export default class FrontPage extends Component {
                     {(this.props.functions.map((f, index) => (
                         <Link className="function-container" key={index} to={`/function/${f.id}`}>
                             <div className="function-container__left">
-                                <div className="function-container__name">Lineare Funktionen</div>
-                                <div className="function-container__formula">y = mx + t</div>
+                                <div className="function-container__name">{f.name}</div>
+                                <div className="function-container__formula">{f.func}</div>
                             </div>
                             {f.svg}
                         </Link>

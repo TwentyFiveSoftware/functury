@@ -6,6 +6,7 @@ import { ReactComponent as LinearFunctionSVG } from './assets/linear-function.sv
 
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
+import LinearFunction from './functions/LinearFunction';
 
 export default class App extends Component {
     state = {
@@ -13,8 +14,10 @@ export default class App extends Component {
             {
                 id: 'linear-function',
                 name: 'Lineare Funktionen',
+                func: 'y = mx + t',
                 svg: <LinearFunctionSVG />,
-                grade: 8
+                grade: 8,
+                tabs: LinearFunction
             }
         ]
     }
