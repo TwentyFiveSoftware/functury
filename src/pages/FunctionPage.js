@@ -3,6 +3,9 @@ import { Redirect, Switch, Route } from 'react-router-dom';
 
 import TopBar from '../components/TopBar';
 import FunctionPlotter from '../components/FunctionPlotter';
+import Equation from '../components/Equation';
+import Fraction from '../components/Fraction';
+import NumberedList from '../components/NumberedList';
 
 export default class FunctionPage extends Component {
     render() {
@@ -105,40 +108,22 @@ class Tab2 extends Component {
                         <div className="empty-space empty-space--small"></div>
                         <div className="text text--multiline">Berechnung der dazugehörigen Geradengleichung aus zwei gegebenen Punkten:</div>
 
-                        <table className="list">
-                            <tbody>
-                                <tr>
-                                    <td><div className="text text--dark-bold">1.</div></td>
-                                    <td>
-                                        <div className="text text--multiline">Berechne die <b>Steigung</b> m mithilfe der beiden Punkte:</div>
-                                        <div className="text text--pos-grid text--padding-vertical">
-                                            <div className="text--grid-middle">
-                                                <div className="text text text--margin-right text--dark-bold">m = </div>
-                                                <div>
-                                                    <div className="text text--dark-bold text--border-bottom-dark text--padding-horizontal">y<sub>2</sub> - y<sub>1</sub></div>
-                                                    <div className="text text--dark-bold text--center">x<sub>2</sub> - x<sub>1</sub></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><div className="text text--dark-bold">2.</div></td>
-                                    <td><div className="text text--multiline">
-                                        Setze <b>m</b> und den x- und y-Wert von einer der beiden Punkte in die Gleichung <b>y = mx + t</b> ein und löse diese nach t auf.</div></td>
-                                </tr>
-                                <tr>
-                                    <td><div className="text text--dark-bold">3.</div></td>
-                                    <td>
-                                        <div className="text text--multiline">Setze die Funktionsgleichung aus dem berechneten m und t zu zusammen.</div>
-                                        <div className="text text--center">
-                                            {/* <div className="text text--inline text--margin-right">-></div> */}
-                                            <div className="text text--dark-bold text--inline">f(x) = mx + t</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <NumberedList>
+                            <React.Fragment>
+                                <div className="text text--multiline">Berechne die <b>Steigung</b> m mithilfe der beiden Punkte:</div>
+                                <Equation centerDark={true} equation={[['m', <Fraction
+                                    top={<React.Fragment>y<sub>2</sub> - y<sub>1</sub></React.Fragment>}
+                                    bottom={<React.Fragment>x<sub>2</sub> - x<sub>1</sub></React.Fragment>} />, '']]} />
+                            </React.Fragment>
+
+                            <div className="text text--multiline">
+                                Setze <b>m</b> und den x- und y-Wert von einer der beiden Punkte in die Gleichung <b>y = mx + t</b> ein und löse diese nach t auf.</div>
+
+                            <React.Fragment>
+                                <div className="text text--multiline">Setze die Funktionsgleichung aus dem berechneten m und t zu zusammen.</div>
+                                <Equation centerDark={true} equation={[['f(x)', 'mx + t', '']]} />
+                            </React.Fragment>
+                        </NumberedList>
                     </div>
 
                     <div>
@@ -148,122 +133,36 @@ class Tab2 extends Component {
                             <div className="text text--inline text--margin-right">P(2 / 3,5)</div>
                             <div className="text text--inline">Q(-1 / 2,75)</div>
 
-                            <table className="list">
-                                <tbody>
-                                    <tr>
-                                        <td><div className="text text--dark-bold">1.</div></td>
-                                        <td className="text--padding-horizontal">
-                                            <table className="equation text equation--large-spacing">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>m</td>
-                                                        <td>=</td>
-                                                        <td>
-                                                            <div className="text--grid-middle">
-                                                                <div>
-                                                                    <div className="text text--border-bottom text--padding-horizontal">y<sub>2</sub> - y<sub>1</sub></div>
-                                                                    <div className="text text--center">x<sub>2</sub> - x<sub>1</sub></div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>=</td>
-                                                        <td>
-                                                            <div className="text--grid-middle">
-                                                                <div>
-                                                                    <div className="text text--border-bottom text--padding-horizontal">2,75 - 3,5</div>
-                                                                    <div className="text text--center">-1 - 2</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>=</td>
-                                                        <td>
-                                                            <div className="text--grid-middle">
-                                                                <div>
-                                                                    <div className="text text--border-bottom text--padding-horizontal">-0,75</div>
-                                                                    <div className="text text--center">-3</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>=</td>
-                                                        <td>0,25</td>
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><div className="text text--dark-bold">2.</div></td>
-                                        <td className="text--padding-horizontal">
-                                            <table className="equation text">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>y</td>
-                                                        <td>=</td>
-                                                        <td>mx + t</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3,5</td>
-                                                        <td>=</td>
-                                                        <td>0,25 ∙ 2 + t</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3,5</td>
-                                                        <td>=</td>
-                                                        <td>0,5 + t</td>
-                                                        <td>| -0,5</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>=</td>
-                                                        <td>t</td>
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><div className="text text--dark-bold">3.</div></td>
-                                        <td className="text--padding-horizontal">
-                                            <table className="equation text">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>f(x)</td>
-                                                        <td>=</td>
-                                                        <td>mx + t</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>f(x)</td>
-                                                        <td>=</td>
-                                                        <td>0,25x + 3</td>
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <NumberedList>
+                                <Equation largeSpacing={true} equation={[
+                                    ['m', <Fraction
+                                        top={<React.Fragment>y<sub>2</sub> - y<sub>1</sub></React.Fragment>}
+                                        bottom={<React.Fragment>x<sub>2</sub> - x<sub>1</sub></React.Fragment>} />, ''],
+
+                                    ['', <Fraction
+                                        top={<React.Fragment>2,75 - 3,5</React.Fragment>}
+                                        bottom={<React.Fragment>-1 - 2</React.Fragment>} />, ''],
+
+                                    ['', <Fraction
+                                        top={<React.Fragment>-0,75</React.Fragment>}
+                                        bottom={<React.Fragment>-3</React.Fragment>} />, ''],
+
+                                    ['', '0,25', '']
+                                ]} />
+
+                                <Equation equation={[
+                                    ['y', 'mx + t', ''],
+                                    ['3,5', '0,25 ∙ 2 + t', ''],
+                                    ['3,5', '0,5 + t', '| -0,5'],
+                                    ['3', 't', '']
+                                ]} />
+
+                                <Equation equation={[['f(x)', 'mx + t', ''], ['f(x)', '0,25x + 3', '']]} />
+                            </NumberedList>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }

@@ -451,6 +451,16 @@ body {
 		border-spacing: 0 1rem;
 	}
 
+	&--center-dark {
+		margin: 1rem auto 0 auto;
+
+		* {
+			color: var(--color-text-dark) !important;
+			border-color: var(--color-text-dark) !important;
+			font-weight: bold;
+		}
+	}
+
 	tr td:nth-child(1) {
 		text-align: right;
 		width: 1%;

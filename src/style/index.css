@@ -573,6 +573,16 @@ body {
   border-spacing: 0 1rem;
 }
 
+.equation--center-dark {
+  margin: 1rem auto 0 auto;
+}
+
+.equation--center-dark * {
+  color: var(--color-text-dark) !important;
+  border-color: var(--color-text-dark) !important;
+  font-weight: bold;
+}
+
 .equation tr td:nth-child(1) {
   text-align: right;
   width: 1%;
