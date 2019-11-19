@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
+import ReactGA from 'react-ga';
+import TagManager from 'react-gtm-module';
 import './style/index.css';
 
 import { ReactComponent as LinearFunctionSVG } from './assets/linear-function.svg';
@@ -7,6 +10,15 @@ import { ReactComponent as LinearFunctionSVG } from './assets/linear-function.sv
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
 import LinearFunction from './functions/LinearFunction';
+
+// GOOGLE ANALYTICS + TAG MANAGER
+
+ReactGA.initialize('UA-152951051-1');
+TagManager.initialize({ gtmId: 'GTM-K6JSWFG' });
+
+ReactGA.pageview('/');
+
+//
 
 export default class App extends Component {
     state = {
