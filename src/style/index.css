@@ -274,10 +274,10 @@ body {
   border-radius: 0.5rem;
   margin-bottom: 2rem;
 }
-.panel--large-padding {
+.panel--large-padding-horizontal {
   padding: 2rem 3rem;
 }
-.panel--large-padding-vertical {
+.panel--large-padding {
   padding: 2rem 2rem;
 }
 
@@ -286,6 +286,12 @@ body {
   font-weight: normal;
   color: var(--color-text-normal);
   text-align: left;
+  line-height: 1;
+}
+.text--headline {
+  color: var(--color-text-dark);
+  font-size: 2rem;
+  line-height: 1.5;
 }
 .text--center {
   text-align: center;
@@ -293,57 +299,23 @@ body {
 }
 .text--semi-big {
   font-size: 2rem;
-}
-.text--headline {
-  color: var(--color-text-dark);
-  font-size: 2rem;
-}
-.text--small {
-  font-size: 1.6rem;
-  line-height: 1rem;
-}
-.text--light {
-  color: var(--color-text-light);
+  line-height: 1.5;
 }
 .text--highlighted {
   color: var(--color-text-accent);
   font-weight: 600;
 }
-.text--multiline {
-  line-height: 1;
+
+.fraction {
+  width: max-content;
 }
-.text--dark-bold {
-  color: var(--color-text-dark);
-  font-weight: bold;
-}
-.text--inline {
-  display: inline-block;
-}
-.text--margin-right {
-  margin-right: 1rem;
-}
-.text--grid-middle {
-  display: grid;
-  grid-template-columns: max-content max-content;
-  align-items: center;
-}
-.text--border-bottom-dark {
-  border-bottom: 0.15rem solid var(--color-text-dark);
-  margin-bottom: -0.05rem;
-}
-.text--border-bottom {
+.fraction__top {
   border-bottom: 0.15rem solid var(--color-text-light);
-  margin-bottom: -0.05rem;
+  padding: 0 0.5rem 0.15rem 0.5rem;
 }
-.text--padding-horizontal {
-  padding: 0 0.5rem;
-}
-.text--padding-vertical {
-  padding: 0.5rem 0;
-}
-.text--pos-grid {
-  display: grid;
-  justify-items: center;
+.fraction__bottom {
+  text-align: center;
+  padding: 0.15rem 0.5rem 0 0.5rem;
 }
 
 .list {
@@ -358,6 +330,9 @@ body {
   padding-right: 1rem;
   padding-top: 1.7rem;
   vertical-align: top;
+  font-size: 1.8rem;
+  color: var(--color-text-dark);
+  font-weight: bold;
 }
 
 .function-plotter {
@@ -380,6 +355,14 @@ body {
 }
 .empty-space--small {
   height: 1rem;
+}
+
+.inline-space {
+  width: 1.5rem;
+  display: inline-block;
+}
+.inline-space--small {
+  width: 0.75rem;
 }
 
 .slider {

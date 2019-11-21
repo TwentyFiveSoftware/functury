@@ -7,8 +7,8 @@ export default class NumberedList extends Component {
                 <tbody>
                     {this.props.children.map((item, index) =>
                         <tr key={index}>
-                            <td><div className="text text--dark-bold">{index + 1}.</div></td>
-                            <td className="text--padding-horizontal">{item}</td>
+                            <td>{index + 1}.</td>
+                            <td>{item}</td>
                         </tr>
                     )}
                 </tbody>
