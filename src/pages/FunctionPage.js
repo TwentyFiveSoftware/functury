@@ -9,7 +9,7 @@ export default class FunctionPage extends Component {
 
         if (f !== undefined)
             return (
-                <div className="page page--function-page">
+                <div className='page page--function-page'>
                     <Switch>
                         <Route path={`${this.props.match.url}/1`} component={props => <Tab1 {...props} func={f} />} />
                         <Route path={`${this.props.match.url}/2`} component={props => <Tab2 {...props} func={f} />} />
@@ -29,7 +29,7 @@ export default class FunctionPage extends Component {
 function Tab1({ func }) {
     return (
         <div>
-            <TopBar page="function" func={func} tab={'1'} />
+            <TopBar page='function' func={func} tab={'1'} />
 
             {/* Graph */}
             {func.tabs[0]}
@@ -40,7 +40,7 @@ function Tab1({ func }) {
 function Tab2({ func }) {
     return (
         <div>
-            <TopBar page="function" func={func} tab={'2'} />
+            <TopBar page='function' func={func} tab={'2'} />
 
             {/* Besonderheiten */}
             {func.tabs[1]}
@@ -51,7 +51,7 @@ function Tab2({ func }) {
 function Tab3({ func }) {
     return (
         <div>
-            <TopBar page="function" func={func} tab={'3'} />
+            <TopBar page='function' func={func} tab={'3'} />
 
             {/* Berechnung */}
             {func.tabs[2]}
@@ -62,7 +62,7 @@ function Tab3({ func }) {
 function Tab4({ func }) {
     return (
         <div>
-            <TopBar page="function" func={func} tab={'4'} />
+            <TopBar page='function' func={func} tab={'4'} />
 
             {/* Aufgaben */}
             {func.tabs[3]}

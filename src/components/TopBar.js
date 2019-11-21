@@ -16,11 +16,11 @@ export default class TopBar extends Component {
 
         if (this.props.page === 'function')
             return (
-                <div className="top-bar top-bar--function-page">
-                    <Link to='/' className="top-bar__link"><FontAwesomeIcon icon={faHome} /></Link>
-                    <div className="top-bar__title top-bar__title--center">{this.props.func.name}</div>
+                <div className='top-bar top-bar--function-page'>
+                    <Link to='/' className='top-bar__link'><FontAwesomeIcon icon={faHome} /></Link>
+                    <div className='top-bar__title top-bar__title--center'>{this.props.func.name}</div>
 
-                    <div className="nav">
+                    <div className='nav'>
                         {navItems.map((item, i) => (
                             <Link
                                 to={`/function/${this.props.func.id}/${item.tab}`}
@@ -36,8 +36,8 @@ export default class TopBar extends Component {
 
         else
             return (
-                <div className="top-bar">
-                    <div className="top-bar__title">Funktionen</div>
+                <div className='top-bar'>
+                    <div className='top-bar__title'>Funktionen</div>
                     <FontAwesomeIcon icon={faEllipsisV} />
                 </div>
             );

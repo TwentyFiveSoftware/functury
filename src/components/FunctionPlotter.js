@@ -41,8 +41,8 @@ export default class FunctionPlotter extends Component {
 
     render() {
         return (
-            <div className="function-plotter">
-                <canvas className="function-plotter__canvas"></canvas>
+            <div className='function-plotter'>
+                <canvas className='function-plotter__canvas'></canvas>
             </div>
         );
     }

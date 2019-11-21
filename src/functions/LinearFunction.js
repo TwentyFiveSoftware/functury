@@ -6,8 +6,8 @@ import NumberedList from '../components/NumberedList';
 
 import FunctionPlotter from '../components/FunctionPlotter';
 import Slider from '../components/Slider';
-import Text from "../components/Text";
-import {EmptySpace, InlineSpace, Panel} from "../components/Utils";
+import Text from '../components/Text';
+import {EmptySpace, InlineSpace, Panel} from '../components/Utils';
 
 //
 
@@ -16,25 +16,25 @@ class LinearFunctionTab1 extends Component {
 
     render() {
         return (
-            <div className="info-page">
+            <div className='info-page'>
                 <Panel>
                     <FunctionPlotter equation={x => this.state.m * x + this.state.t}/>
                 </Panel>
 
-                <div className="right">
+                <div className='right'>
                     <Panel>
                         <Text config={{center: true, semiBig: true}}>y = {this.state.m}x {this.state.t < 0 ? '-' : '+'} {Math.abs(this.state.t)}</Text>
                     </Panel>
 
                     <Panel largePaddingHorizontal={true}>
                         <Slider min={-5} max={5} value={this.state.m} step={0.2} title='Steigung'
-                                f={<div>y = <b className="text--highlighted">m</b>x + t</div>}
+                                f={<div>y = <b className='text--highlighted'>m</b>x + t</div>}
                                 change={value => this.setState({m: value})}/>
 
                         <EmptySpace/>
 
                         <Slider min={-10} max={10} value={this.state.t} step={0.25} title='y-Achsenabschnitt'
-                                f={<div>y = mx + <b className="text--highlighted">t</b></div>}
+                                f={<div>y = mx + <b className='text--highlighted'>t</b></div>}
                                 change={value => this.setState({t: value})}/>
                     </Panel>
                 </div>
@@ -46,13 +46,13 @@ class LinearFunctionTab1 extends Component {
 
 function LinearFunctionTab2() {
     return (
-        <div className="info-page"></div>
+        <div className='info-page'></div>
     );
 }
 
 function LinearFunctionTab3() {
     return (
-        <div className="info-page">
+        <div className='info-page'>
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Steigung berechnen</Text>
                 <EmptySpace small={true}/>
@@ -109,7 +109,7 @@ function LinearFunctionTab3() {
 
 function LinearFunctionTab4() {
     return (
-        <div className="info-page"></div>
+        <div className='info-page'></div>
     );
 }
 
