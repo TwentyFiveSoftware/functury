@@ -13,8 +13,9 @@ export default class CoordinateSystem {
      * @param arrowScale Needs to be an object with width- and height-properties. Specifies the dimensions of the arrows on the axis.
      * @param numberOffset Needs to be an object with x- and y-properties. Specifies the offset between the point of the unit and the corresponding number label.
      * @param gridBorder Padding of the grid.
+     * @param canZoom Ability to zoom.
      */
-    constructor(width, height, border, canvasContext, unitScale = 1, unit = 40, plotStepsPerUnitPercentage = 0.01, unitLineSize = 10, arrowScale = { width: 15, height: 10 }, numberOffset = { x: 12, y: 21 }, gridBorder = 0) {
+    constructor(width, height, border, canvasContext, unitScale = 1, unit = 40, plotStepsPerUnitPercentage = 0.01, unitLineSize = 10, arrowScale = { width: 15, height: 10 }, numberOffset = { x: 12, y: 21 }, gridBorder = 0, canZoom = true) {
         this.WIDTH = width;
         this.HEIGHT = height;
         this.BORDER_X = border.x;
@@ -47,30 +48,32 @@ export default class CoordinateSystem {
 
         this.zoom = 1;
 
-        this.CTX.canvas.addEventListener('mousewheel', e => {
-            e.preventDefault();
+        if(canZoom) {
+            this.CTX.canvas.addEventListener('mousewheel', e => {
+                e.preventDefault();
 
-            let zoomMultiplicator = 0.0005;
-            this.zoom -= e.deltaY * zoomMultiplicator;
+                let zoomMultiplicator = 0.0005;
+                this.zoom -= e.deltaY * zoomMultiplicator;
 
-            if (this.zoom <= 0.25) this.zoom = 0.25;
-            if (this.zoom >= 16) this.zoom = 16;
+                if (this.zoom <= 0.25) this.zoom = 0.25;
+                if (this.zoom >= 16) this.zoom = 16;
 
-            this.scale(this.zoom);
-        });
+                this.scale(this.zoom);
+            });
 
-        this.CTX.canvas.addEventListener('DOMMouseScroll', e => {
-            e.preventDefault();
+            this.CTX.canvas.addEventListener('DOMMouseScroll', e => {
+                e.preventDefault();
 
-            let zoomMultiplicator = 0.01;
-            this.zoom -= e.detail * zoomMultiplicator;
+                let zoomMultiplicator = 0.01;
+                this.zoom -= e.detail * zoomMultiplicator;
 
-            if (this.zoom <= 0.25) this.zoom = 0.25;
-            if (this.zoom >= 16) this.zoom = 16;
+                if (this.zoom <= 0.25) this.zoom = 0.25;
+                if (this.zoom >= 16) this.zoom = 16;
 
-            this.scale(this.zoom);
-        });
-
+                this.scale(this.zoom);
+            });
+        }
+        
         //
 
         this.redraw();

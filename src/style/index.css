@@ -295,7 +295,6 @@ body {
 }
 .text--center {
   text-align: center;
-  margin: auto;
 }
 .text--semi-big {
   font-size: 2rem;
@@ -304,6 +303,9 @@ body {
 .text--highlighted {
   color: var(--color-text-accent);
   font-weight: 600;
+}
+.text--dark {
+  color: var(--color-text-dark);
 }
 
 .fraction {
@@ -415,14 +417,37 @@ body {
 .equation tr td:nth-child(1) {
   text-align: right;
   width: 1%;
+  white-space: nowrap;
 }
 .equation tr td:nth-child(2) {
   text-align: center;
   width: 1%;
   padding: 0 0.5rem;
 }
+.equation tr td:nth-child(3) {
+  white-space: nowrap;
+}
 .equation tr td:nth-child(4) {
   padding-left: 4rem;
+  white-space: nowrap;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  align-items: flex-start;
+}
+@media (max-width: 600px) {
+  .table {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+}
+.table__side {
+  display: grid;
+  justify-items: center;
+  align-items: flex-start;
 }
 
 /*# sourceMappingURL=index.css.map */

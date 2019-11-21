@@ -9,6 +9,7 @@ export default class Text extends Component {
         classes += config.headline ? 'text--headline ' : '';
         classes += config.center ? 'text--center ' : '';
         classes += config.semiBig ? 'text--semi-big ' : '';
+        classes += config.dark ? 'text--dark ' : '';
 
         return (
             <div className={'text ' + classes}>
