@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import ReactGA from 'react-ga';
+import * as ReactGA from 'react-ga';
 import './style/index.css';
 
 import { ReactComponent as LinearFunctionSVG } from './assets/linear-function.svg';
@@ -25,7 +25,7 @@ export default class App extends Component {
                 tabs: LinearFunction
             }
         ]
-    }
+    };
 
     render() {
         return (

@@ -392,6 +392,10 @@ body {
 	width: 100%;
 	padding: 1rem;
 
+	@media (max-width: $break-phone) {
+		padding: 0;
+	}
+
 	&__canvas {
 		width: 100%;
 		height: max-content;
