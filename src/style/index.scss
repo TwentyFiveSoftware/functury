@@ -323,15 +323,21 @@ body {
 
 .fraction {
     width: max-content;
+    display: inline-block;
+    vertical-align: middle;
+
+    &--margin {
+        margin: 0 0.3rem;
+    }
 
     &__top {
         border-bottom: 0.15rem solid var(--color-text-light);
-        padding: 0 0.5rem 0.15rem 0.5rem;
+        padding: 0 0.2rem;
     }
 
     &__bottom {
         text-align: center;
-        padding: 0.15rem 0.5rem 0 0.5rem;
+        padding: 0.15rem 0.2rem 0 0.2rem;
     }
 }
 
@@ -433,9 +439,11 @@ body {
         border-spacing: 0 1rem;
     }
 
-    &--center-dark {
+    &--center {
         margin: 1rem auto 0 auto;
+    }
 
+    &--dark {
         * {
             color: var(--color-text-dark) !important;
             border-color: var(--color-text-dark) !important;

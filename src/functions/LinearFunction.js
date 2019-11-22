@@ -57,12 +57,12 @@ function LinearFunctionTab2() {
 
                 <div className="table">
                     <div className={'table__side'}>
-                        <Text>f(x) = 2x - 3</Text>
-                        <FunctionPlotter equation={x => 2 * x - 3} canZoom={false} id={1} style={{maxWidth: '30rem'}} config={{unitScale: 4, unitSpace: 40}}/>
+                        <Text>f(x) = 2x <b>- 3</b></Text>
+                        <FunctionPlotter equation={x => 2 * x - 3} canZoom={false} id={1} style={{maxWidth: '30rem'}} config={{unitScale: 3, unitSpace: 40}}/>
                     </div>
                     <div className={'table__side'}>
-                        <Text>f(x) = 2x + 2</Text>
-                        <FunctionPlotter equation={x => 2 * x + 2} canZoom={false} id={2} style={{maxWidth: '30rem'}} config={{unitScale: 4, unitSpace: 40}}/>
+                        <Text>f(x) = 2x <b>+ 2</b></Text>
+                        <FunctionPlotter equation={x => 2 * x + 2} canZoom={false} id={2} style={{maxWidth: '30rem'}} config={{unitScale: 2, unitSpace: 40}}/>
                     </div>
                 </div>
             </Panel>
@@ -73,14 +73,14 @@ function LinearFunctionTab2() {
 
                 <div className="table">
                     <div className={'table__side'}>
-                        <Text config={{dark: true}}>Steigende Gerade</Text>
+                        <Text config={{semiBig: true}}>Steigende Gerade</Text>
                         <FunctionPlotter equation={x => x} canZoom={false} id={3} style={{maxWidth: '30rem'}}/>
-                        <Text>Bei positiver Steigung</Text>
+                        <Text>Bei <b>positiver</b> Steigung</Text>
                     </div>
                     <div className={'table__side'}>
-                        <Text config={{dark: true}}>Fallende Gerade</Text>
+                        <Text config={{semiBig: true}}>Fallende Gerade</Text>
                         <FunctionPlotter equation={x => -x} canZoom={false} id={4} style={{maxWidth: '30rem'}}/>
-                        <Text>Bei negativer Steigung</Text>
+                        <Text>Bei <b>negativer</b> Steigung</Text>
                     </div>
                 </div>
             </Panel>
@@ -93,19 +93,20 @@ function LinearFunctionTab3() {
         <div className='info-page'>
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Nullstellen berechnen</Text>
+                <EmptySpace small={true}/>
                 <Text>Berechnung des Schnittpunkts mit der x-Achse</Text>
 
-                <Equation centerDark={true} equation={[['f(x)', '2x + 4', '']]}/>
+                <Equation center={true} equation={[['f(x)', '2x + 4', '']]}/>
 
                 <NumberedList>
                     <React.Fragment>
                         <Text>Setze die Funktion gleich Null</Text>
-                        <Equation centerDark={true} equation={[['2x + 4', '0', '']]}/>
+                        <Equation center={true} equation={[['2x + 4', '0', '']]}/>
                     </React.Fragment>
 
                     <React.Fragment>
                         <Text>Löse die Gleichung nach x auf</Text>
-                        <Equation centerDark={true} equation={[
+                        <Equation center={true} equation={[
                             ['2x + 4', '0', '| -4'],
                             ['2x', '-4', '| :2'],
                             ['x', '-2', ''],
@@ -122,17 +123,18 @@ function LinearFunctionTab3() {
 
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Schnittpunkte zweier Geraden berechnen</Text>
+                <EmptySpace small={true}/>
                 <Text>f(x) = 4x + 2 <InlineSpace small={true}/> f(x) = -2x + 1</Text>
 
                 <NumberedList>
                     <React.Fragment>
                         <Text>Setze die beiden Funktionen gleich</Text>
-                        <Equation centerDark={true} equation={[['f(x)', 'g(x)', ''], ['4x + 2', '-2x + 1', '']]}/>
+                        <Equation center={true} equation={[['f(x)', 'g(x)', ''], ['4x + 2', '-2x + 1', '']]}/>
                     </React.Fragment>
 
                     <React.Fragment>
                         <Text>Löse die Gleichung nach x auf</Text>
-                        <Equation centerDark={true} equation={[
+                        <Equation center={true} equation={[
                             ['4x + 2', '-2x + 1', '| -1'],
                             ['4x + 1', '-2x', '| -4x'],
                             ['4x + 1', '-2x - 4x', ''],
@@ -146,17 +148,17 @@ function LinearFunctionTab3() {
                         <EmptySpace small={true}/>
                         <Text config={{center: true}}>x -> f(x)</Text>
 
-                        <Equation centerDark={true} equation={[
-                            ['f(-1/6)', '4 ∙ (-1/6) + 2', ''],
-                            ['', '- 4/6 + 2', ''],
-                            ['', '- 2/3 + 2', ''],
+                        <Equation center={true} equation={[
+                            [<div>f(-<Fraction top={1} bottom={6} margin={true}/>)</div>, <div>4 ∙ (-<Fraction top={1} bottom={6} margin={true}/>) + 2</div>, ''],
+                            ['', <div>-<Fraction top={4} bottom={6} margin={true}/> + 2</div>, ''],
+                            ['', <div>-<Fraction top={2} bottom={3} margin={true}/> + 2</div>, ''],
                             ['', <Fraction top={4} bottom={3}/>, ''],
                         ]}/>
                     </React.Fragment>
                 </NumberedList>
 
                 <EmptySpace/>
-                <Text>=> Schnittpunkt der Geraden bei S(-1/6 / 4/3)</Text>
+                <Text>=> Schnittpunkt der Geraden bei S(-<Fraction top={1} bottom={6} margin={true}/> / <Fraction top={4} bottom={3} margin={true}/>)</Text>
             </Panel>
 
             <Panel largePadding={true}>
@@ -168,7 +170,7 @@ function LinearFunctionTab3() {
                     <React.Fragment>
                         <Text>Berechne die <b>Steigung</b> m mithilfe der beiden Punkte:</Text>
 
-                        <Equation centerDark={true} equation={[['m', <Fraction
+                        <Equation center={true} dark={true} equation={[['m', <Fraction
                             top={<div>y<sub>2</sub> - y<sub>1</sub></div>}
                             bottom={<div>x<sub>2</sub> - x<sub>1</sub></div>}/>, '']]}/>
                     </React.Fragment>
@@ -177,7 +179,7 @@ function LinearFunctionTab3() {
 
                     <React.Fragment>
                         <Text>Setze die Funktionsgleichung aus dem berechneten m und t zu zusammen.</Text>
-                        <Equation centerDark={true} equation={[['f(x)', 'mx + t', '']]}/>
+                        <Equation center={true} dark={true} equation={[['f(x)', 'mx + t', '']]}/>
                     </React.Fragment>
                 </NumberedList>
             </Panel>
@@ -218,31 +220,32 @@ function LinearFunctionTab4() {
         <div className='info-page'>
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Aufgabe - 1</Text>
-                <Text>Zeichne die Gerade f(x) = 3x - 2 und f(x) = -3/4x + 1 in ein Koordinatensystem. Bestimme auch die dazugehörigen Nullstellen.</Text>
+                <Text>Zeichne die Gerade f(x) = 3x - 2 und f(x) = -<Fraction top={3} bottom={4}/>x + 1 in ein Koordinatensystem. Bestimme auch die dazugehörigen Nullstellen.</Text>
             </Panel>
 
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Aufgabe - 1 - Lösung</Text>
+                <EmptySpace small={true}/>
 
                 <div className="table">
                     <div className={'table__side'}>
                         <Text>f(x) = 3x - 2</Text>
                         <FunctionPlotter equation={x => 3 * x - 2} canZoom={false} id={4} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
 
-                        <Equation centerDark={true} equation={[
+                        <Equation equation={[
                             ['3x - 2', '0', '| +2'],
                             ['3x', '2', '| :3'],
-                            ['x', <Fraction top={2} bottom={3}/>, ''],
+                            ['x', <Fraction top={2} bottom={3} />, ''],
                         ]}/>
                     </div>
                     <div className={'table__side'}>
-                        <Text>f(x) = -3/4x + 1</Text>
+                        <Text>f(x) = -<Fraction top={3} bottom={4} margin={true} />x + 1</Text>
                         <FunctionPlotter equation={x => (-3 / 4) * x + 1} canZoom={false} id={5} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
 
-                        <Equation centerDark={true} equation={[
-                            ['-3/4x + 1', '0', '| -1'],
-                            ['-3/4x', '-1', '| :(-3/4)'],
-                            ['x', <Fraction top={-4} bottom={3}/>, ''],
+                        <Equation equation={[
+                            [<div>-<Fraction top={3} bottom={4} margin={true}/>x + 1</div>, '0', '| -1'],
+                            [<div>-<Fraction top={3} bottom={4} margin={true}/>x</div>, '-1', <div>| :(-<Fraction top={3} bottom={4} margin={true}/>)</div>],
+                            ['x', <div>-<Fraction top={4} bottom={3} margin={true}/></div>, ''],
                         ]}/>
                     </div>
                 </div>
@@ -255,10 +258,11 @@ function LinearFunctionTab4() {
                 <Text>Berechne die Schnittpunkte der beiden Geraden.</Text>
             </Panel>
 
-            <Panel largePadding={true}>
+            <Panel largePaddingHorizontal={true}>
                 <Text config={{headline: true}}>Aufgabe - 2 - Lösung</Text>
+                <EmptySpace small={true}/>
 
-                <Equation centerDark={true} equation={[
+                <Equation equation={[
                     ['f(x)', 'g(x)', ''],
                     ['2x - 3', '-0,5 + 4', '| +3'],
                     ['2x', '-0,5x + 7', '| +0,5x'],
@@ -267,10 +271,10 @@ function LinearFunctionTab4() {
                 ]}/>
 
                 <EmptySpace small={true}/>
-                <Text config={{center: true}}>x -> f(x)</Text>
+                <Text>x -> f(x)</Text>
                 <EmptySpace small={true}/>
 
-                <Equation centerDark={true} equation={[
+                <Equation equation={[
                     ['f(2,8)', '2 ∙ 2,8 - 3', ''],
                     ['', '5,6 - 3', ''],
                     ['', '2,6', '']

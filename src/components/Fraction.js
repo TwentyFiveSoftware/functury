@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class Fraction extends Component {
-    render() {
-        return (
-            <div className={'fraction'}>
-                <div className={'fraction__top'}>{this.props.top}</div>
-                <div className={'fraction__bottom'}>{this.props.bottom}</div>
-            </div>
-        );
-    }
+export default function Fraction({top, bottom, margin}) {
+    return (
+        <div className={'fraction ' + (!margin ? '' : 'fraction--margin')}>
+            <div className={'fraction__top'}>{top}</div>
+            <div className={'fraction__bottom'}>{bottom}</div>
+        </div>
+    );
 }

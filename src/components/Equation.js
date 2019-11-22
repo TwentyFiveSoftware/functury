@@ -4,7 +4,8 @@ export default class Equation extends Component {
     render() {
         let classes = 'equation text ';
         classes += (this.props.largeSpacing === undefined ? '' : (this.props.largeSpacing ? 'equation--large-spacing ' : ''));
-        classes += (this.props.centerDark === undefined ? '' : (this.props.centerDark ? 'equation--center-dark ' : ''));
+        classes += (this.props.center === undefined ? '' : (this.props.center ? 'equation--center ' : ''));
+        classes += (this.props.dark === undefined ? '' : (this.props.dark ? 'equation--dark ' : ''));
 
         return (
             <table className={classes}>
