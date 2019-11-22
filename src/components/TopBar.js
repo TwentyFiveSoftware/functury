@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+// import Dropdown from "./Dropdown";
 
 export default class TopBar extends Component {
     render() {
@@ -39,6 +40,7 @@ export default class TopBar extends Component {
                 <div className='top-bar'>
                     <div className='top-bar__title'>Funktionen</div>
                     <FontAwesomeIcon icon={faEllipsisV} />
+                    {/*<Dropdown/>*/}
                 </div>
             );
     }
