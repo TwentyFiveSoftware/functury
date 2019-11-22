@@ -7,7 +7,7 @@ import NumberedList from '../components/NumberedList';
 import FunctionPlotter from '../components/FunctionPlotter';
 import Slider from '../components/Slider';
 import Text from '../components/Text';
-import {EmptySpace, InlineSpace, Panel} from '../components/Utils';
+import {Button, EmptySpace, InlineSpace, Panel, Solution} from '../components/Utils';
 
 //
 
@@ -139,7 +139,7 @@ function LinearFunctionTab3() {
                             ['4x + 1', '-2x', '| -4x'],
                             ['4x + 1', '-2x - 4x', ''],
                             ['1', '-6x', '| :(-6)'],
-                            [<Fraction top={-1} bottom={6}/>, 'x', ''],
+                            [<div>-<Fraction top={1} bottom={6} margin={true}/></div>, 'x', ''],
                         ]}/>
                     </React.Fragment>
 
@@ -215,76 +215,94 @@ function LinearFunctionTab3() {
     );
 }
 
-function LinearFunctionTab4() {
-    return (
-        <div className='info-page'>
-            <Panel largePadding={true}>
-                <Text config={{headline: true}}>Aufgabe - 1</Text>
-                <Text>Zeichne die Gerade f(x) = 3x - 2 und f(x) = -<Fraction top={3} bottom={4}/>x + 1 in ein Koordinatensystem. Bestimme auch die dazugehörigen Nullstellen.</Text>
-            </Panel>
+class LinearFunctionTab4 extends Component {
+    state = {solutions: [false, false]};
 
-            <Panel largePadding={true}>
-                <Text config={{headline: true}}>Aufgabe - 1 - Lösung</Text>
-                <EmptySpace small={true}/>
+    toggleSolution = index => {
+        let {solutions} = this.state;
+        solutions[index] = !solutions[index];
+        this.setState({solutions});
+    };
 
-                <div className="table">
-                    <div className={'table__side'}>
-                        <Text>f(x) = 3x - 2</Text>
-                        <FunctionPlotter equation={x => 3 * x - 2} canZoom={false} id={4} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
+    render() {
+        return (
+            <div className='info-page'>
+                <Panel largePadding={true}>
+                    <Text config={{headline: true}}>Aufgabe - 1</Text>
+                    <Text>Zeichne die Gerade f(x) = 3x - 2 und f(x) = -<Fraction top={3} bottom={4}/>x + 1 in ein Koordinatensystem. Bestimme auch die dazugehörigen Nullstellen.</Text>
+
+                    <EmptySpace/>
+                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(0)}/>
+                    <EmptySpace/>
+
+                    <Solution open={this.state.solutions[0]}>
+                        <Text config={{headline: true}}>Lösung</Text>
+                        <EmptySpace small={true}/>
+
+                        <div className="table">
+                            <div className={'table__side'}>
+                                <Text>f(x) = 3x - 2</Text>
+                                <FunctionPlotter equation={x => 3 * x - 2} canZoom={false} id={4} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
+
+                                <Equation equation={[
+                                    ['3x - 2', '0', '| +2'],
+                                    ['3x', '2', '| :3'],
+                                    ['x', <Fraction top={2} bottom={3}/>, ''],
+                                ]}/>
+                            </div>
+                            <div className={'table__side'}>
+                                <Text>f(x) = -<Fraction top={3} bottom={4} margin={true}/>x + 1</Text>
+                                <FunctionPlotter equation={x => (-3 / 4) * x + 1} canZoom={false} id={5} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
+
+                                <Equation equation={[
+                                    [<div>-<Fraction top={3} bottom={4} margin={true}/>x + 1</div>, '0', '| -1'],
+                                    [<div>-<Fraction top={3} bottom={4} margin={true}/>x</div>, '-1', <div>| :(-<Fraction top={3} bottom={4} margin={true}/>)</div>],
+                                    ['x', <div>-<Fraction top={4} bottom={3} margin={true}/></div>, ''],
+                                ]}/>
+                            </div>
+                        </div>
+                    </Solution>
+                </Panel>
+
+                <Panel largePadding={true}>
+                    <Text config={{headline: true}}>Aufgabe - 2</Text>
+                    <Text>Gegeben sind die Geraden f(x) = 2x - 3 <InlineSpace small={true}/> g(x) = -0,5x + 4.</Text>
+                    <Text>Berechne den Schnittpunkt der beiden Geraden.</Text>
+
+                    <EmptySpace/>
+                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(1)}/>
+                    <EmptySpace/>
+
+                    <Solution open={this.state.solutions[1]}>
+                        <Text config={{headline: true}}>Lösung</Text>
+                        <EmptySpace small={true}/>
 
                         <Equation equation={[
-                            ['3x - 2', '0', '| +2'],
-                            ['3x', '2', '| :3'],
-                            ['x', <Fraction top={2} bottom={3} />, ''],
+                            ['f(x)', 'g(x)', ''],
+                            ['2x - 3', '-0,5 + 4', '| +3'],
+                            ['2x', '-0,5x + 7', '| +0,5x'],
+                            ['2,5x', '7', '| :2,5'],
+                            ['x', '2,8', '']
                         ]}/>
-                    </div>
-                    <div className={'table__side'}>
-                        <Text>f(x) = -<Fraction top={3} bottom={4} margin={true} />x + 1</Text>
-                        <FunctionPlotter equation={x => (-3 / 4) * x + 1} canZoom={false} id={5} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
+
+                        <EmptySpace small={true}/>
+                        <Text>x -> f(x)</Text>
+                        <EmptySpace small={true}/>
 
                         <Equation equation={[
-                            [<div>-<Fraction top={3} bottom={4} margin={true}/>x + 1</div>, '0', '| -1'],
-                            [<div>-<Fraction top={3} bottom={4} margin={true}/>x</div>, '-1', <div>| :(-<Fraction top={3} bottom={4} margin={true}/>)</div>],
-                            ['x', <div>-<Fraction top={4} bottom={3} margin={true}/></div>, ''],
+                            ['f(2,8)', '2 ∙ 2,8 - 3', ''],
+                            ['', '5,6 - 3', ''],
+                            ['', '2,6', '']
                         ]}/>
-                    </div>
-                </div>
-            </Panel>
 
+                        <EmptySpace/>
+                        <Text>=> Schnittpunkt der Geraden bei S(2,8 / 2,6)</Text>
+                    </Solution>
+                </Panel>
 
-            <Panel largePadding={true}>
-                <Text config={{headline: true}}>Aufgabe - 2</Text>
-                <Text>Gegeben sind die Geraden f(x) = 2x - 3 <InlineSpace small={true}/> g(x) = -0,5x + 4.</Text>
-                <Text>Berechne die Schnittpunkte der beiden Geraden.</Text>
-            </Panel>
-
-            <Panel largePaddingHorizontal={true}>
-                <Text config={{headline: true}}>Aufgabe - 2 - Lösung</Text>
-                <EmptySpace small={true}/>
-
-                <Equation equation={[
-                    ['f(x)', 'g(x)', ''],
-                    ['2x - 3', '-0,5 + 4', '| +3'],
-                    ['2x', '-0,5x + 7', '| +0,5x'],
-                    ['2,5x', '7', '| :2,5'],
-                    ['x', '2,8', '']
-                ]}/>
-
-                <EmptySpace small={true}/>
-                <Text>x -> f(x)</Text>
-                <EmptySpace small={true}/>
-
-                <Equation equation={[
-                    ['f(2,8)', '2 ∙ 2,8 - 3', ''],
-                    ['', '5,6 - 3', ''],
-                    ['', '2,6', '']
-                ]}/>
-
-                <EmptySpace/>
-                <Text>=> Schnittpunkt der Geraden bei S(2,8 / 2,6)</Text>
-            </Panel>
-        </div>
-    );
+            </div>
+        );
+    }
 }
 
 

@@ -455,4 +455,30 @@ body {
   align-items: flex-start;
 }
 
+.button {
+  width: max-content;
+  padding: 0.5rem 3rem;
+  background-color: var(--color-text-accent);
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  cursor: pointer;
+  user-select: none;
+  transition: ease-out 0.15s;
+  box-shadow: var(--shadow);
+}
+.button:hover {
+  border-radius: 1.5rem;
+}
+
+.solution {
+  overflow: hidden;
+  height: 0;
+}
+.solution--open {
+  height: auto;
+  padding-top: 2rem;
+  border-top: 0.1rem solid var(--color-text-light);
+}
+
 /*# sourceMappingURL=index.css.map */

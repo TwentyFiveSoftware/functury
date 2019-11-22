@@ -20,3 +20,15 @@ export function Panel({largePadding, largePaddingHorizontal, children}) {
         </div>
     );
 }
+
+export function Button({title, click}) {
+    return (
+        <div className={'button'} onClick={() => click()}>{title}</div>
+    );
+}
+
+export function Solution({open, children}) {
+    return (
+        <div className={'solution ' + (open ? 'solution--open' : '')}>{children}</div>
+    );
+}
