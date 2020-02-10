@@ -8,6 +8,14 @@ import FunctionPage from './pages/FunctionPage';
 import LinearFunction from './functions/LinearFunction';
 
 export default class App extends Component {
+    /**
+     *  id: https://functury.web.app/function/:id/
+     *  name: FrontPage & FunctionPage-Title
+     *  func: FrontPage
+     *  svg: FrontPage
+     *  grade: Dropdown (FrontPage)
+     *  tabs: Name of import of FunctionPage-Tabs
+     */
     state = {
         functions: [
             {
