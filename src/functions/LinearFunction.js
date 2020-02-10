@@ -9,6 +9,13 @@ import Slider from '../components/Slider';
 import Text from '../components/Text';
 import {Button, EmptySpace, InlineSpace, Panel, Solution} from '../components/Utils';
 
+import svg_tab2_1 from '../assets/linearFunction/linearFunction_tab2_1.svg';
+import svg_tab2_2 from '../assets/linearFunction/linearFunction_tab2_2.svg';
+import svg_tab2_3 from '../assets/linearFunction/linearFunction_tab2_3.svg';
+import svg_tab2_4 from '../assets/linearFunction/linearFunction_tab2_4.svg';
+import svg_tab4_1 from '../assets/linearFunction/linearFunction_tab4_1.svg';
+import svg_tab4_2 from '../assets/linearFunction/linearFunction_tab4_2.svg';
+
 //
 
 class LinearFunctionTab1 extends Component {
@@ -57,12 +64,14 @@ function LinearFunctionTab2() {
 
                 <div className="table">
                     <div className={'table__side'}>
-                        <Text>f(x) = 2x <b>- 3</b></Text>
-                        <FunctionPlotter equation={x => 2 * x - 3} canZoom={false} id={1} style={{maxWidth: '30rem'}} config={{unitScale: 3, unitSpace: 40}}/>
+                        <Text>f(x) = 2x <b>+ 2</b></Text>
+                        <img className={'info-svg'} src={svg_tab2_1} alt={''}/>
+                        {/*<FunctionPlotter equation={x => 2 * x + 3} canZoom={false} id={1} style={{maxWidth: '30rem'}} config={{unitScale: 3, unitSpace: 40}}/>*/}
                     </div>
                     <div className={'table__side'}>
-                        <Text>f(x) = 2x <b>+ 2</b></Text>
-                        <FunctionPlotter equation={x => 2 * x + 2} canZoom={false} id={2} style={{maxWidth: '30rem'}} config={{unitScale: 2, unitSpace: 40}}/>
+                        <Text>f(x) = 2x <b>- 2</b></Text>
+                        <img className={'info-svg'} src={svg_tab2_2} alt={''}/>
+                        {/*<FunctionPlotter equation={x => 2 * x - 3} canZoom={false} id={2} style={{maxWidth: '30rem'}} config={{unitScale: 2, unitSpace: 40}}/>*/}
                     </div>
                 </div>
             </Panel>
@@ -71,18 +80,37 @@ function LinearFunctionTab2() {
                 <Text config={{headline: true}}>Steigende / Fallende Gerade</Text>
                 <EmptySpace/>
 
-                <div className="table">
-                    <div className={'table__side'}>
-                        <Text config={{semiBig: true}}>Steigende Gerade</Text>
-                        <FunctionPlotter equation={x => x} canZoom={false} id={3} style={{maxWidth: '30rem'}}/>
-                        <Text>Bei <b>positiver</b> Steigung</Text>
-                    </div>
-                    <div className={'table__side'}>
-                        <Text config={{semiBig: true}}>Fallende Gerade</Text>
-                        <FunctionPlotter equation={x => -x} canZoom={false} id={4} style={{maxWidth: '30rem'}}/>
-                        <Text>Bei <b>negativer</b> Steigung</Text>
-                    </div>
-                </div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><Text config={{semiBig: true, center: true}}>Steigende Gerade</Text></td>
+                        <td><Text config={{semiBig: true, center: true}}>Fallende Gerade</Text></td>
+                    </tr>
+                    <tr>
+                        <td><img className={'info-svg'} src={svg_tab2_3} alt={''}/></td>
+                        <td><img className={'info-svg'} src={svg_tab2_4} alt={''}/></td>
+                    </tr>
+                    <tr>
+                        <td><Text config={{center: true}}>Bei <b>positiver</b> Steigung</Text></td>
+                        <td><Text config={{center: true}}>Bei <b>negativer</b> Steigung</Text></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                {/*<div className="table">*/}
+                {/*    <div className={'table__side'}>*/}
+                {/*        <Text config={{semiBig: true}}>Steigende Gerade</Text>*/}
+                {/*        <img className={'info-svg'} src={svg_tab2_3} alt={''}/>*/}
+                {/*        /!*<FunctionPlotter equation={x => x} canZoom={false} id={3} style={{maxWidth: '30rem'}}/>*!/*/}
+                {/*        <Text>Bei <b>positiver</b> Steigung</Text>*/}
+                {/*    </div>*/}
+                {/*    <div className={'table__side'}>*/}
+                {/*        <Text config={{semiBig: true}}>Fallende Gerade</Text>*/}
+                {/*        <img className={'info-svg'} src={svg_tab2_4} alt={''}/>*/}
+                {/*        /!*<FunctionPlotter equation={x => -x} canZoom={false} id={4} style={{maxWidth: '30rem'}}/>*!/*/}
+                {/*        <Text>Bei <b>negativer</b> Steigung</Text>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </Panel>
         </div>
     );
@@ -229,7 +257,7 @@ class LinearFunctionTab4 extends Component {
             <div className='info-page'>
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Aufgabe - 1</Text>
-                    <Text>Zeichne die Gerade f(x) = 3x - 2 und f(x) = -<Fraction top={3} bottom={4}/>x + 1 in ein Koordinatensystem. Bestimme auch die dazugehörigen Nullstellen.</Text>
+                    <Text>Zeichne die Gerade f(x) = 3x - 2 und f(x) = - <Fraction top={3} bottom={4}/>x + 1 in ein Koordinatensystem. Bestimme auch die dazugehörigen Nullstellen.</Text>
 
                     <EmptySpace/>
                     <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(0)}/>
@@ -239,10 +267,11 @@ class LinearFunctionTab4 extends Component {
                         <Text config={{headline: true}}>Lösung</Text>
                         <EmptySpace small={true}/>
 
-                        <div className="table">
+                        <div className='table table--break'>
                             <div className={'table__side'}>
                                 <Text>f(x) = 3x - 2</Text>
-                                <FunctionPlotter equation={x => 3 * x - 2} canZoom={false} id={4} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
+                                {/*<FunctionPlotter equation={x => 3 * x - 2} canZoom={false} id={4} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>*/}
+                                <img className={'info-svg'} src={svg_tab4_1} alt={''}/>
 
                                 <Equation equation={[
                                     ['3x - 2', '0', '| +2'],
@@ -252,7 +281,8 @@ class LinearFunctionTab4 extends Component {
                             </div>
                             <div className={'table__side'}>
                                 <Text>f(x) = -<Fraction top={3} bottom={4} margin={true}/>x + 1</Text>
-                                <FunctionPlotter equation={x => (-3 / 4) * x + 1} canZoom={false} id={5} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>
+                                {/*<FunctionPlotter equation={x => (-3 / 4) * x + 1} canZoom={false} id={5} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>*/}
+                                <img className={'info-svg'} src={svg_tab4_2} alt={''}/>
 
                                 <Equation equation={[
                                     [<div>-<Fraction top={3} bottom={4} margin={true}/>x + 1</div>, '0', '| -1'],
@@ -266,7 +296,7 @@ class LinearFunctionTab4 extends Component {
 
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Aufgabe - 2</Text>
-                    <Text>Gegeben sind die Geraden f(x) = 2x - 3 <InlineSpace small={true}/> g(x) = -0,5x + 4.</Text>
+                    <Text>Gegeben sind die Geraden f(x) = 2x - 3 und g(x) = -0,5x + 4.</Text>
                     <Text>Berechne den Schnittpunkt der beiden Geraden.</Text>
 
                     <EmptySpace/>

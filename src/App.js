@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import './style/index.css';
 
-import {ReactComponent as LinearFunctionSVG} from './assets/linear-function.svg';
+import {ReactComponent as LinearFunctionSVG} from './assets/linearFunction/linear-function.svg';
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
 import LinearFunction from './functions/LinearFunction';
