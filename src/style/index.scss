@@ -163,18 +163,21 @@ table {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 3rem 1.5rem;
+    max-width: 100%;
+    overflow-x: hidden;
 
     @media (min-width: $break-phone) {
         justify-content: center;
     }
 
     @media (min-width: $break-tablet) {
-        padding: 3rem 2.5rem;
+        //padding: 3rem 2.5rem;
+        padding: 1.5rem;
         justify-content: flex-start;
     }
 
     @media (min-width: $break-pc) {
-        padding: 1.5rem;
+        //padding: 1.5rem;
     }
 }
 
@@ -192,13 +195,14 @@ table {
     cursor: pointer;
     transition: ease-out 0.15s;
     margin-bottom: 2rem;
+    align-self: flex-start;
 
     &:hover {
         transform: scale(1.015);
     }
 
     @media (min-width: $break-phone) {
-        width: max-content;
+        //width: max-content;
         padding: 1rem 5rem;
     }
 
@@ -229,6 +233,7 @@ table {
         font-size: 2.2rem;
         color: var(--color-text-dark);
         line-height: 1.8rem;
+        word-break: break-word;
 
         @media (min-width: $break-tablet) {
             font-size: 2.5rem;

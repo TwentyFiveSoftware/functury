@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <clipPath id="clip-Gebrochen_rationale_Funktion">
+      <rect width="300" height="300"/>
+    </clipPath>
+  </defs>
+  <g id="Gebrochen_rationale_Funktion" data-name="Gebrochen rationale Funktion" clip-path="url(#clip-Gebrochen_rationale_Funktion)">
+    <line id="Linie_39" data-name="Linie 39" y2="250" transform="translate(149.847 25)" fill="none" stroke="#f4f4f4" stroke-linecap="round" stroke-width="10"/>
+    <line id="Linie_40" data-name="Linie 40" y2="250" transform="translate(274.694 149.847) rotate(90)" fill="none" stroke="#f4f4f4" stroke-linecap="round" stroke-width="10"/>
+    <path id="Pfad_3" data-name="Pfad 3" d="M-1091.4,2528.05s-4.448,59.7,23.994,86.65,85.211,24.06,85.211,24.06" transform="translate(1256 -2503)" fill="none" stroke="#8bc24a" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+    <path id="Pfad_4" data-name="Pfad 4" d="M-982.452,2638.851s4.448-59.7-23.994-86.65-85.211-24.06-85.211-24.06" transform="translate(1118 -2364)" fill="none" stroke="#8bc24a" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  </g>
+</svg>

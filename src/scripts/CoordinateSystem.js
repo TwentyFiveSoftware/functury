@@ -1,7 +1,7 @@
 export default class CoordinateSystem {
     /**
      * Generates and draws a new coordinate system within graphs of functions can be plotted.
-     * 
+     *
      * @param width Width of the coordinate system.
      * @param height Height of the coordinate system.
      * @param border Needs to be an object with x- and y-properties. Specifies the padding on the x- and y-axis between the border and the location of the last possible number.
@@ -15,7 +15,7 @@ export default class CoordinateSystem {
      * @param gridBorder Padding of the grid.
      * @param canZoom Ability to zoom.
      */
-    constructor(width, height, border, canvasContext, unitScale = 1, unit = 40, plotStepsPerUnitPercentage = 0.01, unitLineSize = 10, arrowScale = { width: 15, height: 10 }, numberOffset = { x: 12, y: 21 }, gridBorder = 0, canZoom = true) {
+    constructor(width, height, border, canvasContext, unitScale = 1, unit = 40, plotStepsPerUnitPercentage = 0.01, unitLineSize = 10, arrowScale = {width: 15, height: 10}, numberOffset = {x: 12, y: 21}, gridBorder = 0, canZoom = true) {
         this.WIDTH = width;
         this.HEIGHT = height;
         this.BORDER_X = border.x;
@@ -48,7 +48,7 @@ export default class CoordinateSystem {
 
         this.zoom = 1;
 
-        if(canZoom) {
+        if (canZoom) {
             this.CTX.canvas.addEventListener('mousewheel', e => {
                 e.preventDefault();
 
@@ -73,7 +73,7 @@ export default class CoordinateSystem {
                 this.scale(this.zoom);
             });
         }
-        
+
         //
 
         this.redraw();
@@ -168,15 +168,15 @@ export default class CoordinateSystem {
         let percentageY = (y + this.yUnits * this.UNIT_SCALE) / (this.yUnits * this.UNIT_SCALE * 2);
         let realY = Math.floor(this.inverseLerp(lowestRealY, highestRealY, percentageY));
 
-        return { x: realX, y: realY }
+        return {x: realX, y: realY}
     }
 
     inverseLerp(min, max, p) {
         return min + (max - min) * p;
     }
 
-    drawGraph(f) {
-        this.CTX.strokeStyle = '#8BC24A';
+    drawGraph(f, color = '#8BC24A') {
+        this.CTX.strokeStyle = color;
         this.CTX.lineWidth = 3;
 
         let firstPointDrawn = false;
@@ -184,8 +184,10 @@ export default class CoordinateSystem {
         for (let x = -(this.xUnits + 1) * this.UNIT_SCALE; x <= (this.xUnits + 1) * this.UNIT_SCALE; x += this.PLOT_STEPS_PER_UNIT_PERCENTAGE * this.UNIT_SCALE) {
             let point = this.getRealCoords(x, f(x));
 
-            if (!(point.y >= this.GRID_BORDER && point.y <= this.HEIGHT - this.GRID_BORDER))
+            if (!(point.y >= this.GRID_BORDER && point.y <= this.HEIGHT - this.GRID_BORDER)) {
+                firstPointDrawn = false;
                 continue;
+            }
 
             if (!firstPointDrawn) {
                 this.CTX.beginPath();
@@ -204,7 +206,7 @@ export default class CoordinateSystem {
 
     /**
      * Plots a graph of a function in the coordinate system.
-     * 
+     *
      * @param f A function depending on x.
      */
     plot(f) {
@@ -223,8 +225,8 @@ export default class CoordinateSystem {
     }
 
     /**
-     * Scales the coordinate system. 
-     * 
+     * Scales the coordinate system.
+     *
      * @param factor
      */
     scale(factor) {

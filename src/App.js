@@ -2,10 +2,15 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import './style/index.css';
 
-import {ReactComponent as LinearFunctionSVG} from './assets/linearFunction/linear-function.svg';
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
+import Fraction from './components/Fraction';
+import Text from "./components/Text";
+
+import {ReactComponent as LinearFunctionSVG} from './assets/linearFunction/linear-function.svg';
+import {ReactComponent as RationalFunctionSVG} from './assets/rationalFunction/rational-function.svg';
 import LinearFunction from './functions/LinearFunction';
+import RationalFunction from './functions/RationalFunction';
 
 export default class App extends Component {
     /**
@@ -25,6 +30,14 @@ export default class App extends Component {
                 svg: <LinearFunctionSVG/>,
                 grade: 8,
                 tabs: LinearFunction
+            },
+            {
+                id: 'rational-function',
+                name: 'Gebrochenrationale Funktionen',
+                func: <div>y = <Fraction top={<Text config={{center: true}}>a</Text>} bottom={<Text config={{center: true}}>x - b</Text>}/> + c</div>,
+                svg: <RationalFunctionSVG/>,
+                grade: 8,
+                tabs: RationalFunction
             }
         ]
     };

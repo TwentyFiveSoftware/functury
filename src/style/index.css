@@ -151,6 +151,8 @@ table {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 3rem 1.5rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 @media (min-width: 470px) {
   .content {
@@ -159,16 +161,10 @@ table {
 }
 @media (min-width: 600px) {
   .content {
-    padding: 3rem 2.5rem;
+    padding: 1.5rem;
     justify-content: flex-start;
   }
 }
-@media (min-width: 1000px) {
-  .content {
-    padding: 1.5rem;
-  }
-}
-
 .function-container {
   width: 100%;
   height: auto;
@@ -183,13 +179,13 @@ table {
   cursor: pointer;
   transition: ease-out 0.15s;
   margin-bottom: 2rem;
+  align-self: flex-start;
 }
 .function-container:hover {
   transform: scale(1.015);
 }
 @media (min-width: 470px) {
   .function-container {
-    width: max-content;
     padding: 1rem 5rem;
   }
 }
@@ -221,6 +217,7 @@ table {
   font-size: 2.2rem;
   color: var(--color-text-dark);
   line-height: 1.8rem;
+  word-break: break-word;
 }
 @media (min-width: 600px) {
   .function-container__name {
