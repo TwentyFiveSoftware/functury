@@ -339,13 +339,17 @@ table {
         margin: 0 0.3rem;
     }
 
+    &__top, &__bottom {
+        text-align: center;
+        line-height: 1;
+    }
+
     &__top {
         border-bottom: 0.15rem solid var(--color-text-light);
         padding: 0 0.2rem;
     }
 
     &__bottom {
-        text-align: center;
         padding: 0.15rem 0.2rem 0 0.2rem;
     }
 }

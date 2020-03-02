@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import CoordinateSystem from '../scripts/CoordinateSystem';
 
@@ -8,9 +8,9 @@ export default class FunctionPlotter extends Component {
 
         let {unitScale, unitSpace} = this.props.config === undefined ? {} : this.props.config;
 
-        this.cosy = new CoordinateSystem(100, 100, { x: 12, y: 20 }, ctx, unitScale === undefined ? 1 : unitScale,
+        this.cosy = new CoordinateSystem(100, 100, {x: 12, y: 20}, ctx, unitScale === undefined ? 1 : unitScale,
             unitSpace === undefined ? 50 : unitSpace, 0.005,
-            10, { width: 15, height: 10 }, { x: 12, y: 21 }, 20, this.props.canZoom);
+            10, {width: 15, height: 10}, {x: 12, y: 21}, 20, this.props.canZoom);
 
         if (this.props.equation !== undefined)
             this.cosy.plot(this.props.equation);
@@ -24,7 +24,8 @@ export default class FunctionPlotter extends Component {
     }
 
     componentDidUpdate() {
-        this.cosy.redraw();
+        if (this.props.equation !== undefined)
+            this.cosy.setFunctios([this.props.equation]);
     }
 
     resizeCanvas = () => {

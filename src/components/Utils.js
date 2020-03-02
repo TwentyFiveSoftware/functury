@@ -1,17 +1,12 @@
 import React from 'react';
 
 export function EmptySpace({small}) {
-    return (
-        <div className={'empty-space ' + (small === undefined || !small ? '' : 'empty-space--small')}/>
-    );
+    return <div className={'empty-space ' + (small === undefined || !small ? '' : 'empty-space--small')}/>;
 }
 
 export function InlineSpace({small}) {
-    return (
-        <div className={'inline-space ' + (small === undefined || !small ? '' : 'inline-space--small')}/>
-    );
+    return <div className={'inline-space ' + (small === undefined || !small ? '' : 'inline-space--small')}/>;
 }
-
 
 export function Panel({largePadding, largePaddingHorizontal, children}) {
     return (
@@ -22,13 +17,13 @@ export function Panel({largePadding, largePaddingHorizontal, children}) {
 }
 
 export function Button({title, click}) {
-    return (
-        <div className={'button'} onClick={() => click()}>{title}</div>
-    );
+    return <div className={'button'} onClick={() => click()}>{title}</div>;
 }
 
 export function Solution({open, children}) {
-    return (
-        <div className={'solution ' + (open ? 'solution--open' : '')}>{children}</div>
-    );
+    return <div className={'solution ' + (open ? 'solution--open' : '')}>{children}</div>;
+}
+
+export function H({children}) {
+    return <b className='text--highlighted'>{children}</b>;
 }

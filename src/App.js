@@ -5,7 +5,6 @@ import './style/index.css';
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
 import Fraction from './components/Fraction';
-import Text from "./components/Text";
 
 import {ReactComponent as LinearFunctionSVG} from './assets/linearFunction/linear-function.svg';
 import {ReactComponent as RationalFunctionSVG} from './assets/rationalFunction/rational-function.svg';
@@ -34,7 +33,7 @@ export default class App extends Component {
             {
                 id: 'rational-function',
                 name: 'Gebrochenrationale Funktionen',
-                func: <div>y = <Fraction top={<Text config={{center: true}}>a</Text>} bottom={<Text config={{center: true}}>x - b</Text>}/> + c</div>,
+                func: <div>y = <Fraction top={'a'} bottom={'x + b'}/> + c</div>,
                 svg: <RationalFunctionSVG/>,
                 grade: 8,
                 tabs: RationalFunction

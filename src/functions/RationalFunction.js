@@ -1,57 +1,52 @@
 import React, {Component} from 'react';
 import Fraction from '../components/Fraction';
-
-import FunctionPlotter from '../components/FunctionPlotter';
-import Slider from '../components/Slider';
 import Text from '../components/Text';
-import {EmptySpace, Panel} from '../components/Utils';
+import {EmptySpace, H, InlineSpace, Panel} from '../components/Utils';
+import GraphTab from "../components/GraphTab";
 
 //
 
-class RationalFunctionTab1 extends Component {
-    state = {a: 1, b: 0, c: 0};
+function RationalFunctionTab1() {
+    let term = (v) => <div>y = <Fraction top={v.a} bottom={<div>x {v.o_b} {v.B}</div>}/> {v.o_c} {v.C}</div>;
+    let sliders = [
+        {
+            title: 'Streckung in y-Richtung',
+            variable: 'a',
+            min: -5, max: 5, step: 0.1,
+            F: () => <div>y = <Fraction top={<H>a</H>} bottom={'x + b'}/> + c</div>
+        },
+        {
+            title: 'Verschiebung in x-Richtung',
+            variable: 'b',
+            min: -5, max: 5, step: 0.25,
+            F: () => <div>y = <Fraction top={'a'} bottom={<div>x + <H>b</H></div>}/> + c</div>
+        },
+        {
+            title: 'Verschiebung in y-Richtung',
+            variable: 'c',
+            min: -5, max: 5, step: 0.25,
+            F: () => <div>y = <Fraction top={'a'} bottom={'x + b'}/> + <H>c</H></div>
+        },
+    ];
 
-    render() {
-        return (
-            <div className='info-page'>
-                <Panel>
-                    <FunctionPlotter equation={x => this.state.a / (x + this.state.b) + this.state.c} id={1}/>
-                </Panel>
-
-                <div className='right'>
-                    <Panel>
-                        <Text config={{center: true, semiBig: true}}>
-                            y = <Fraction top={this.state.a} bottom={<div>x {this.state.b < 0 ? '-' : '+'} {Math.abs(this.state.b)}
-                        </div>}/> {this.state.c < 0 ? '-' : '+'} {Math.abs(this.state.c)}</Text>
-                    </Panel>
-
-                    <Panel largePaddingHorizontal={true}>
-                        <Slider min={-5} max={5} value={this.state.a} step={0.2} title='Streckung in y-Richtung'
-                                f={<div>y = <Fraction top={<Text config={{center: true}}><b className='text--highlighted'>a</b></Text>} bottom={'x - b'}/> + c</div>}
-                                change={value => this.setState({a: value})}/>
-
-                        <EmptySpace/>
-
-                        <Slider min={-10} max={10} value={this.state.b} step={0.2} title='Verschiebung in x-Richtung'
-                                f={<div>y = <Fraction top={<Text config={{center: true}}>a</Text>} bottom={<div>x - <b className='text--highlighted'>b</b></div>}/> + c</div>}
-                                change={value => this.setState({b: value})}/>
-
-                        <EmptySpace/>
-
-                        <Slider min={-10} max={10} value={this.state.c} step={0.25} title='Verschiebung in y-Richtung'
-                                f={<div>y = <Fraction top={<Text config={{center: true}}>a</Text>} bottom={'x - b'}/> + <b className='text--highlighted'>c</b></div>}
-                                change={value => this.setState({c: value})}/>
-                    </Panel>
-                </div>
-
-            </div>
-        );
-    }
+    return <GraphTab formula={'a / (x + b) + c'} variables={{a: 1, b: 0, c: 0}} Term={term} sliders={sliders}/>;
 }
 
 function RationalFunctionTab2() {
     return (
         <div className='info-page'>
+
+            <Panel largePadding={true}>
+                <Text config={{headline: true}}>Definitionslücken / Definitionsmenge</Text>
+                <Text>Bei gebrochenrationalen Funktionen gibt es meist bestimmte Werte, die <b>nicht</b> für x eingesetzt werden können, da sonst der Nenner des Bruchterms Null ergibt.</Text>
+                <Text>Die Menge dieser Werte heißt Definitionsmenge D.</Text>
+
+                <EmptySpace/>
+                <Text>Beispiel:</Text>
+                <EmptySpace small={true}/>
+                <Text>f(x) = <Fraction top={'1'} bottom={'x + 2'}/> <InlineSpace/>D = &#8474; \ {'{-2}'}</Text>
+            </Panel>
+
         </div>
     );
 }

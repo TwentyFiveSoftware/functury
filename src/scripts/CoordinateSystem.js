@@ -205,6 +205,16 @@ export default class CoordinateSystem {
     }
 
     /**
+     * Sets the current functions and redraws.
+     *
+     * @param functions A list of functions
+     */
+    setFunctios(functions) {
+        this.functions = functions;
+        this.redraw();
+    }
+
+    /**
      * Plots a graph of a function in the coordinate system.
      *
      * @param f A function depending on x.
