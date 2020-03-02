@@ -15,7 +15,7 @@ export default class App extends Component {
     /**
      *  id: https://functury.web.app/function/:id/
      *  name: FrontPage & FunctionPage-Title
-     *  func: FrontPage
+     *  formula: FrontPage
      *  svg: FrontPage
      *  grade: Dropdown (FrontPage)
      *  tabs: Name of import of FunctionPage-Tabs
@@ -25,7 +25,7 @@ export default class App extends Component {
             {
                 id: 'linear-function',
                 name: 'Lineare Funktionen',
-                func: 'y = mx + t',
+                formula: 'y = mx + t',
                 svg: <LinearFunctionSVG/>,
                 grade: 8,
                 tabs: LinearFunction
@@ -33,7 +33,7 @@ export default class App extends Component {
             {
                 id: 'rational-function',
                 name: 'Gebrochenrationale Funktionen',
-                func: <div>y = <Fraction top={'a'} bottom={'x + b'}/> + c</div>,
+                formula: <div>y = <Fraction top={'a'} bottom={'x + b'}/> + c</div>,
                 svg: <RationalFunctionSVG/>,
                 grade: 8,
                 tabs: RationalFunction

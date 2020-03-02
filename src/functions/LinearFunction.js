@@ -3,11 +3,9 @@ import React, {Component} from 'react';
 import Equation from '../components/Equation';
 import Fraction from '../components/Fraction';
 import NumberedList from '../components/NumberedList';
-
-import FunctionPlotter from '../components/FunctionPlotter';
-import Slider from '../components/Slider';
 import Text from '../components/Text';
-import {Button, EmptySpace, InlineSpace, Panel, Solution} from '../components/Utils';
+import {Button, EmptySpace, H, InlineSpace, Panel, Solution} from '../components/Utils';
+import GraphTab from "../components/GraphTab";
 
 import svg_tab2_1 from '../assets/linearFunction/linearFunction_tab2_1.svg';
 import svg_tab2_2 from '../assets/linearFunction/linearFunction_tab2_2.svg';
@@ -18,37 +16,23 @@ import svg_tab4_2 from '../assets/linearFunction/linearFunction_tab4_2.svg';
 
 //
 
-class LinearFunctionTab1 extends Component {
-    state = {m: 1, t: 0};
+function LinearFunctionTab1() {
+    let sliders = [
+        {
+            title: 'Steigung',
+            variable: 'm',
+            min: -5, max: 5, step: 0.1,
+            F: () => <div>y = <H>m</H>x + t</div>
+        },
+        {
+            title: 'y-Achsenabschnitt',
+            variable: 't',
+            min: -10, max: 10, step: 0.25,
+            F: () => <div>y = mx + <H>t</H></div>
+        }
+    ];
 
-    render() {
-        return (
-            <div className='info-page'>
-                <Panel>
-                    <FunctionPlotter equation={x => this.state.m * x + this.state.t} id={0}/>
-                </Panel>
-
-                <div className='right'>
-                    <Panel>
-                        <Text config={{center: true, semiBig: true}}>y = {this.state.m}x {this.state.t < 0 ? '-' : '+'} {Math.abs(this.state.t)}</Text>
-                    </Panel>
-
-                    <Panel largePaddingHorizontal={true}>
-                        <Slider min={-5} max={5} value={this.state.m} step={0.2} title='Steigung'
-                                f={<div>y = <b className='text--highlighted'>m</b>x + t</div>}
-                                change={value => this.setState({m: value})}/>
-
-                        <EmptySpace/>
-
-                        <Slider min={-10} max={10} value={this.state.t} step={0.25} title='y-Achsenabschnitt'
-                                f={<div>y = mx + <b className='text--highlighted'>t</b></div>}
-                                change={value => this.setState({t: value})}/>
-                    </Panel>
-                </div>
-
-            </div>
-        );
-    }
+    return <GraphTab formula={'m * x + t'} variables={{m: 1, t: 0}} Term={(v) => <div>y = {v.m}x {v.o_t} {v.T}</div>} sliders={sliders}/>;
 }
 
 function LinearFunctionTab2() {
