@@ -4,12 +4,14 @@ import './style/index.css';
 
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
+
 import Fraction from './components/Fraction';
+
+import LinearFunction from './functions/LinearFunction';
+import RationalFunction from './functions/RationalFunction';
 
 import {ReactComponent as LinearFunctionSVG} from './assets/linearFunction/linear-function.svg';
 import {ReactComponent as RationalFunctionSVG} from './assets/rationalFunction/rational-function.svg';
-import LinearFunction from './functions/LinearFunction';
-import RationalFunction from './functions/RationalFunction';
 
 export default class App extends Component {
     /**

@@ -1,7 +1,11 @@
 import React from 'react';
 
-export function EmptySpace({small}) {
-    return <div className={'empty-space ' + (small === undefined || !small ? '' : 'empty-space--small')}/>;
+export function EmptySpace() {
+    return <div className={'empty-space'}/>;
+}
+
+export function EmptySpaceSmall() {
+    return <div className={'empty-space empty-space--small'}/>;
 }
 
 export function InlineSpace({small}) {

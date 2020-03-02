@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
-import {EmptySpace, Panel} from "./Utils";
-import Text from "./Text";
-import Slider from "./Slider";
-import FunctionPlotter from "./FunctionPlotter";
+import Text from './Text';
+import Slider from './Slider';
+import FunctionPlotter from './FunctionPlotter';
+import {EmptySpace, Panel} from './Utils';
 
 export default class GraphTab extends Component {
     state = {variables: {}, formula: _ => 0};
@@ -39,16 +39,16 @@ export default class GraphTab extends Component {
 
                     <Panel largePaddingHorizontal={true}>
                         {sliders.map(({title, variable, min, max, step, F}, index) => (
-                            <React.Fragment key={index}>
+                            <Fragment key={index}>
                                 <Slider min={min} max={max} step={step} value={variables[variable]} title={title} f={<F/>} key={index}
                                         change={value => {
                                             let v = variables;
                                             v[variable] = value;
                                             this.setState({variables: v});
                                         }}/>
-                                
+
                                 <EmptySpace/>
-                            </React.Fragment>
+                            </Fragment>
                         ))}
                     </Panel>
                 </div>

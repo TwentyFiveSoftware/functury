@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import Equation from '../components/Equation';
 import Fraction from '../components/Fraction';
 import NumberedList from '../components/NumberedList';
 import Text from '../components/Text';
-import {Button, EmptySpace, H, InlineSpace, Panel, Solution} from '../components/Utils';
-import GraphTab from "../components/GraphTab";
+import GraphTab from '../components/GraphTab';
+import {Button, EmptySpace, EmptySpaceSmall, H, InlineSpace, Panel, Solution} from '../components/Utils';
 
 import svg_tab2_1 from '../assets/linearFunction/linearFunction_tab2_1.svg';
 import svg_tab2_2 from '../assets/linearFunction/linearFunction_tab2_2.svg';
@@ -42,11 +42,11 @@ function LinearFunctionTab2() {
                 <Text config={{headline: true}}>Verschiebung auf der y-Achse</Text>
                 <Text>Bei der Funktion f(x) = mx + t steht m für die Steigung und t für den y-Achsenabschnitt.</Text>
 
-                <EmptySpace small={true}/>
+                <EmptySpaceSmall/>
                 <Text>Beispiel:</Text>
-                <EmptySpace small={true}/>
+                <EmptySpaceSmall/>
 
-                <div className="table">
+                <div className='table'>
                     <div className={'table__side'}>
                         <Text>f(x) = 2x <b>+ 2</b></Text>
                         <img className={'info-svg'} src={svg_tab2_1} alt={''}/>
@@ -81,7 +81,7 @@ function LinearFunctionTab2() {
                     </tbody>
                 </table>
 
-                {/*<div className="table">*/}
+                {/*<div className='table'>*/}
                 {/*    <div className={'table__side'}>*/}
                 {/*        <Text config={{semiBig: true}}>Steigende Gerade</Text>*/}
                 {/*        <img className={'info-svg'} src={svg_tab2_3} alt={''}/>*/}
@@ -105,18 +105,18 @@ function LinearFunctionTab3() {
         <div className='info-page'>
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Nullstellen berechnen</Text>
-                <EmptySpace small={true}/>
+                <EmptySpaceSmall/>
                 <Text>Berechnung des Schnittpunkts mit der x-Achse</Text>
 
                 <Equation center={true} equation={[['f(x)', '2x + 4', '']]}/>
 
                 <NumberedList>
-                    <React.Fragment>
+                    <Fragment>
                         <Text>Setze die Funktion gleich Null</Text>
                         <Equation center={true} equation={[['2x + 4', '0', '']]}/>
-                    </React.Fragment>
+                    </Fragment>
 
-                    <React.Fragment>
+                    <Fragment>
                         <Text>Löse die Gleichung nach x auf</Text>
                         <Equation center={true} equation={[
                             ['2x + 4', '0', '| -4'],
@@ -124,9 +124,9 @@ function LinearFunctionTab3() {
                             ['x', '-2', ''],
                         ]}/>
 
-                        <EmptySpace small={true}/>
+                        <EmptySpaceSmall/>
                         <Text>=> Schnittpunkt: S(-2 / 0)</Text>
-                    </React.Fragment>
+                    </Fragment>
                 </NumberedList>
 
                 <EmptySpace/>
@@ -135,71 +135,71 @@ function LinearFunctionTab3() {
 
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Schnittpunkte zweier Geraden berechnen</Text>
-                <EmptySpace small={true}/>
+                <EmptySpaceSmall/>
                 <Text>f(x) = 4x + 2 <InlineSpace small={true}/> f(x) = -2x + 1</Text>
 
                 <NumberedList>
-                    <React.Fragment>
+                    <Fragment>
                         <Text>Setze die beiden Funktionen gleich</Text>
                         <Equation center={true} equation={[['f(x)', 'g(x)', ''], ['4x + 2', '-2x + 1', '']]}/>
-                    </React.Fragment>
+                    </Fragment>
 
-                    <React.Fragment>
+                    <Fragment>
                         <Text>Löse die Gleichung nach x auf</Text>
                         <Equation center={true} equation={[
                             ['4x + 2', '-2x + 1', '| -1'],
                             ['4x + 1', '-2x', '| -4x'],
                             ['4x + 1', '-2x - 4x', ''],
                             ['1', '-6x', '| :(-6)'],
-                            [<div>-<Fraction top={1} bottom={6} margin={true}/></div>, 'x', ''],
+                            [<div>-<Fraction top={1} bottom={6}/></div>, 'x', ''],
                         ]}/>
-                    </React.Fragment>
+                    </Fragment>
 
-                    <React.Fragment>
+                    <Fragment>
                         <Text>Setze x in eine der beiden Funktionen ein, wahlweise die Leichtere</Text>
-                        <EmptySpace small={true}/>
+                        <EmptySpaceSmall/>
                         <Text config={{center: true}}>x -> f(x)</Text>
 
                         <Equation center={true} equation={[
-                            [<div>f(-<Fraction top={1} bottom={6} margin={true}/>)</div>, <div>4 ∙ (-<Fraction top={1} bottom={6} margin={true}/>) + 2</div>, ''],
-                            ['', <div>-<Fraction top={4} bottom={6} margin={true}/> + 2</div>, ''],
-                            ['', <div>-<Fraction top={2} bottom={3} margin={true}/> + 2</div>, ''],
+                            [<div>f(-<Fraction top={1} bottom={6}/>)</div>, <div>4 ∙ (-<Fraction top={1} bottom={6}/>) + 2</div>, ''],
+                            ['', <div>-<Fraction top={4} bottom={6}/> + 2</div>, ''],
+                            ['', <div>-<Fraction top={2} bottom={3}/> + 2</div>, ''],
                             ['', <Fraction top={4} bottom={3}/>, ''],
                         ]}/>
-                    </React.Fragment>
+                    </Fragment>
                 </NumberedList>
 
                 <EmptySpace/>
-                <Text>=> Schnittpunkt der Geraden bei S(-<Fraction top={1} bottom={6} margin={true}/> / <Fraction top={4} bottom={3} margin={true}/>)</Text>
+                <Text>=> Schnittpunkt der Geraden bei S(-<Fraction top={1} bottom={6}/> / <Fraction top={4} bottom={3}/>)</Text>
             </Panel>
 
             <Panel largePadding={true}>
                 <Text config={{headline: true}}>Steigung berechnen</Text>
-                <EmptySpace small={true}/>
+                <EmptySpaceSmall/>
                 <Text>Berechnung der dazugehörigen Geradengleichung aus zwei gegebenen Punkten:</Text>
 
                 <NumberedList>
-                    <React.Fragment>
+                    <Fragment>
                         <Text>Berechne die <b>Steigung</b> m mithilfe der beiden Punkte:</Text>
 
                         <Equation center={true} dark={true} equation={[['m', <Fraction
                             top={<div>y<sub>2</sub> - y<sub>1</sub></div>}
                             bottom={<div>x<sub>2</sub> - x<sub>1</sub></div>}/>, '']]}/>
-                    </React.Fragment>
+                    </Fragment>
 
                     <Text>Setze <b>m</b> und den x- und y-Wert von einer der beiden Punkte in die Gleichung <b>y = mx + t</b> ein und löse diese nach t auf.</Text>
 
-                    <React.Fragment>
+                    <Fragment>
                         <Text>Setze die Funktionsgleichung aus dem berechneten m und t zu zusammen.</Text>
                         <Equation center={true} dark={true} equation={[['f(x)', 'mx + t', '']]}/>
-                    </React.Fragment>
+                    </Fragment>
                 </NumberedList>
             </Panel>
 
             <div>
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Beispiel - Steigung berechnen</Text>
-                    <EmptySpace small={true}/>
+                    <EmptySpaceSmall/>
                     <Text>P(2 / 3,5) <InlineSpace small={true}/> Q(-1 / 2,75)</Text>
 
                     <NumberedList>
@@ -207,8 +207,8 @@ function LinearFunctionTab3() {
                             ['m', <Fraction
                                 top={<div>y<sub>2</sub> - y<sub>1</sub></div>}
                                 bottom={<div>x<sub>2</sub> - x<sub>1</sub></div>}/>, ''],
-                            ['', <Fraction top={<div>2,75 - 3,5</div>} bottom={<div>-1 - 2</div>}/>, ''],
-                            ['', <Fraction top={<div>-0,75</div>} bottom={<div>-3</div>}/>, ''],
+                            ['', <Fraction top={'2,75 - 3,5'} bottom={'-1 - 2'}/>, ''],
+                            ['', <Fraction top={'-0,75'} bottom={'-3'}/>, ''],
                             ['', '0,25', '']
                         ]}/>
 
@@ -249,7 +249,7 @@ class LinearFunctionTab4 extends Component {
 
                     <Solution open={this.state.solutions[0]}>
                         <Text config={{headline: true}}>Lösung</Text>
-                        <EmptySpace small={true}/>
+                        <EmptySpaceSmall/>
 
                         <div className='table table--break'>
                             <div className={'table__side'}>
@@ -264,14 +264,14 @@ class LinearFunctionTab4 extends Component {
                                 ]}/>
                             </div>
                             <div className={'table__side'}>
-                                <Text>f(x) = -<Fraction top={3} bottom={4} margin={true}/>x + 1</Text>
+                                <Text>f(x) = -<Fraction top={3} bottom={4}/>x + 1</Text>
                                 {/*<FunctionPlotter equation={x => (-3 / 4) * x + 1} canZoom={false} id={5} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>*/}
                                 <img className={'info-svg'} src={svg_tab4_2} alt={''}/>
 
                                 <Equation equation={[
-                                    [<div>-<Fraction top={3} bottom={4} margin={true}/>x + 1</div>, '0', '| -1'],
-                                    [<div>-<Fraction top={3} bottom={4} margin={true}/>x</div>, '-1', <div>| :(-<Fraction top={3} bottom={4} margin={true}/>)</div>],
-                                    ['x', <div>-<Fraction top={4} bottom={3} margin={true}/></div>, ''],
+                                    [<div>-<Fraction top={3} bottom={4}/>x + 1</div>, '0', '| -1'],
+                                    [<div>-<Fraction top={3} bottom={4}/>x</div>, '-1', <div>| :(-<Fraction top={3} bottom={4}/>)</div>],
+                                    ['x', <div>-<Fraction top={4} bottom={3}/></div>, ''],
                                 ]}/>
                             </div>
                         </div>
@@ -289,7 +289,7 @@ class LinearFunctionTab4 extends Component {
 
                     <Solution open={this.state.solutions[1]}>
                         <Text config={{headline: true}}>Lösung</Text>
-                        <EmptySpace small={true}/>
+                        <EmptySpaceSmall/>
 
                         <Equation equation={[
                             ['f(x)', 'g(x)', ''],
@@ -299,9 +299,9 @@ class LinearFunctionTab4 extends Component {
                             ['x', '2,8', '']
                         ]}/>
 
-                        <EmptySpace small={true}/>
+                        <EmptySpaceSmall/>
                         <Text>x -> f(x)</Text>
-                        <EmptySpace small={true}/>
+                        <EmptySpaceSmall/>
 
                         <Equation equation={[
                             ['f(2,8)', '2 ∙ 2,8 - 3', ''],

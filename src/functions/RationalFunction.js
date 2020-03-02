@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Fraction from '../components/Fraction';
 import Text from '../components/Text';
 import {EmptySpace, H, InlineSpace, Panel} from '../components/Utils';
-import GraphTab from "../components/GraphTab";
+import GraphTab from '../components/GraphTab';
 
 //
 
