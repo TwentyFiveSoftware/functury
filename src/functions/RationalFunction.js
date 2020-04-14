@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Fraction from '../components/Fraction';
 import Text from '../components/Text';
-import {EmptySpace, EmptySpaceSmall, H, InlineSpace, Panel} from '../components/Utils';
+import {Button, EmptySpace, EmptySpaceSmall, H, InlineSpace, Panel, Solution} from '../components/Utils';
 import GraphTab from '../components/GraphTab';
 
 import svg_tab2_1 from '../assets/rationalFunction/rationalFunction_tab2_1.svg';
+import Equation from "../components/Equation";
+import NumberedList from "../components/NumberedList";
+import svg_tab4_1 from "../assets/rationalFunction/rationalFunction_tab4_1.svg";
 
 //
 
@@ -96,12 +99,78 @@ function RationalFunctionTab2() {
 function RationalFunctionTab3() {
     return (
         <div className='info-page'>
+
+            <Panel largePadding={true}>
+                <Text config={{headline: true}}>Definitionslücken</Text>
+                <EmptySpaceSmall/>
+                <Text>Beispiel:</Text>
+                <Text>f(x) = <Fraction top={'1'} bottom={'(x - 2)∙(x + 3)'}/></Text>
+
+                <NumberedList>
+                    <Fragment>
+                        <Text>Setze den <b>Nenner</b> gleich Null</Text>
+                        <Equation center={true} equation={[['(x - 2)∙(x + 3)', '0', '']]}/>
+                    </Fragment>
+
+                    <Fragment>
+
+
+                        <Text>Löse die Gleichung nach x auf</Text>
+                        <Equation center={true} equation={[
+                            ['(x - 2)∙(x + 3)', '0', '| :(x + 3)'],
+                            ['x - 2', '0', '| +2'],
+                            ['x', '2', ''],
+                        ]}/>
+
+                        <Text>1. Definitionslücke: x = 2</Text>
+                        <EmptySpaceSmall/>
+
+                        <Equation center={true} equation={[
+                            ['(x - 2)∙(x + 3)', '0', '| :(x - 2)'],
+                            ['x + 3', '0', '| -3'],
+                            ['x', '-3', ''],
+                        ]}/>
+
+                        <Text>2. Definitionslücke: x = -3</Text>
+                    </Fragment>
+                </NumberedList>
+            </Panel>
+
+            <Panel largePadding={true}>
+                <Text config={{headline: true}}>Nullstellen</Text>
+
+                <EmptySpaceSmall/>
+                <Text>Beispiel:</Text>
+                <Text>f(x) = <Fraction top={'3x + 1'} bottom={'x - 1'}/></Text>
+
+                <NumberedList>
+                    <Fragment>
+                        <Text>Setze den <b>Zähler</b> gleich Null</Text>
+                        <Equation center={true} equation={[['3x + 1', '0', '']]}/>
+                    </Fragment>
+
+                    <Fragment>
+
+
+                        <Text>Löse die Gleichung nach x auf</Text>
+                        <Equation center={true} equation={[
+                            ['3x + 1', '0', '| -1'],
+                            ['3x', '-1', '| :3'],
+                            ['x', <div>-<Fraction top={1} bottom={3}/></div>, ''],
+                        ]}/>
+
+                        <Text>Nullstelle: x = -<Fraction top={1} bottom={3}/></Text>
+                    </Fragment>
+                </NumberedList>
+            </Panel>
+
+
         </div>
     );
 }
 
 class RationalFunctionTab4 extends Component {
-    state = {solutions: []};
+    state = {solutions: [false, false, false]};
 
     toggleSolution = index => {
         let {solutions} = this.state;
@@ -112,10 +181,107 @@ class RationalFunctionTab4 extends Component {
     render() {
         return (
             <div className='info-page'>
+                <Panel largePadding={true}>
+                    <Text config={{headline: true}}>Aufgabe - 1</Text>
+                    <Text>Gebe die Funktionsterme der Graphen an.</Text>
+
+                    <img className={'info-svg'} src={svg_tab4_1} alt={''}/>
+
+                    <EmptySpace/>
+                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(0)}/>
+                    <EmptySpace/>
+
+                    <Solution open={this.state.solutions[0]}>
+                        <Text config={{headline: true}}>Lösung</Text>
+                        <EmptySpaceSmall/>
+
+                        <Text>Grüner Graph: f(x) = <Fraction top={1} bottom={'x - 2'}/> + 1</Text>
+                        <Text>Roter Graph: f(x) = -<Fraction top={1} bottom={'x - 1'}/></Text>
+                        <Text>Blauer Graph: f(x) = <Fraction top={2} bottom={'x'}/></Text>
+                    </Solution>
+                </Panel>
+
+                <Panel largePadding={true}>
+                    <Text config={{headline: true}}>Aufgabe - 2</Text>
+                    <Text>Gib jeweils die Definitionsmenge der Funktion an.</Text>
+                    <EmptySpace/>
+
+                    <Text>a) f(x) = <Fraction top={'2x'} bottom={'x'}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>b) g(x) = -<Fraction top={1} bottom={'x - 4'}/> + 2</Text>
+                    <EmptySpaceSmall/>
+                    <Text>c) h(x) = <Fraction top={'0,5x + 1'} bottom={'2∙(x + 1)'}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>d) i(x) = <Fraction top={'25x + 9'} bottom={'(x + 5)∙(x - 0,25)'}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>e) j(x) = <Fraction top={'5x'} bottom={<div>x<sup>2</sup></div>}/> + 3</Text>
+                    <EmptySpaceSmall/>
+                    <Text>f) k(x) = <Fraction top={'25'} bottom={<div>(x + 3)<sup>2</sup></div>}/> + 3</Text>
+
+                    <EmptySpace/>
+                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(1)}/>
+                    <EmptySpace/>
+
+                    <Solution open={this.state.solutions[1]}>
+                        <Text config={{headline: true}}>Lösung</Text>
+                        <EmptySpaceSmall/>
+                        <Text>a) D = ℚ \ {'{0}'}</Text>
+                        <EmptySpaceSmall/>
+                        <Text>b) D = ℚ \ {'{4}'}</Text>
+                        <EmptySpaceSmall/>
+                        <Text>c) D = ℚ \ {'{-1}'}</Text>
+                        <EmptySpaceSmall/>
+                        <Text>d) D = ℚ \ {'{-5; 0,25}'}</Text>
+                        <EmptySpaceSmall/>
+                        <Text>e) D = ℚ \ {'{0}'}</Text>
+                        <EmptySpaceSmall/>
+                        <Text>f) D = ℚ \ {'{-3}'}</Text>
+                    </Solution>
+                </Panel>
+
+                <Panel largePadding={true}>
+                    <Text config={{headline: true}}>Aufgabe - 3</Text>
+                    <Text>Berechne jeweils die Nullstelle(n).</Text>
+                    <EmptySpace/>
+
+                    <Text>a) f(x) = <Fraction top={'1'} bottom={'x'}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>b) g(x) = -<Fraction top={'2x'} bottom={'2x + 5'}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>c) h(x) = <Fraction top={'25x + 9'} bottom={'x'}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>d) i(x) = <Fraction top={'0,5x + x'} bottom={'2∙(x + 3)'}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>e) j(x) = <Fraction top={'5x'} bottom={<div>x<sup>2</sup></div>}/></Text>
+                    <EmptySpaceSmall/>
+                    <Text>f) k(x) = <Fraction top={'0,5x∙(x + 1)∙(x - 3)'} bottom={'x + 2'}/></Text>
+
+                    <EmptySpace/>
+                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(2)}/>
+                    <EmptySpace/>
+
+                    <Solution open={this.state.solutions[2]}>
+                        <Text config={{headline: true}}>Lösung</Text>
+                        <EmptySpaceSmall/>
+                        <Text>a) Keine Nullstellen</Text>
+                        <EmptySpaceSmall/>
+                        <Text>b) x = 0</Text>
+                        <EmptySpaceSmall/>
+                        <Text>c) x = 0,36</Text>
+                        <EmptySpaceSmall/>
+                        <Text>d) x = 0</Text>
+                        <EmptySpaceSmall/>
+                        <Text>e) Keine Nullstellen</Text>
+                        <EmptySpaceSmall/>
+                        <Text>f) x<sub>1</sub> = 0; x<sub>2</sub> = -1; x<sub>3</sub> = 3</Text>
+                    </Solution>
+                </Panel>
             </div>
         );
     }
 }
 
 
-export default [<RationalFunctionTab1/>, <RationalFunctionTab2/>, <RationalFunctionTab3/>, <RationalFunctionTab4/>];
+export default [
+    <RationalFunctionTab1/>, <RationalFunctionTab2/>, <RationalFunctionTab3/>, <RationalFunctionTab4/>
+];
