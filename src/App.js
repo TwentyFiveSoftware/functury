@@ -9,9 +9,11 @@ import Fraction from './components/Fraction';
 
 import LinearFunction from './functions/LinearFunction';
 import RationalFunction from './functions/RationalFunction';
+import QuadraticFunction from './functions/QuadraticFunction';
 
 import {ReactComponent as LinearFunctionSVG} from './assets/linearFunction/linear-function.svg';
 import {ReactComponent as RationalFunctionSVG} from './assets/rationalFunction/rational-function.svg';
+import {ReactComponent as QuadraticFuntionSVG} from './assets/quadraticFunction/quadratic-function.svg';
 
 export default class App extends Component {
     /**
@@ -39,6 +41,14 @@ export default class App extends Component {
                 svg: <RationalFunctionSVG/>,
                 grade: 8,
                 tabs: RationalFunction
+            },
+            {
+                id: 'quadratic-function',
+                name: 'Quadratische Funktionen',
+                formula: <div>y = a(x - b)<sup>2</sup> + c</div>,
+                svg: <QuadraticFuntionSVG/>,
+                grade: 9,
+                tabs: QuadraticFunction
             }
         ]
     };

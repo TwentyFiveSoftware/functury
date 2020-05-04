@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <clipPath id="clip-Quadratische_Funktion">
+      <rect width="300" height="300"/>
+    </clipPath>
+  </defs>
+  <g id="Quadratische_Funktion" data-name="Quadratische Funktion" clip-path="url(#clip-Quadratische_Funktion)">
+    <line id="Linie_39" data-name="Linie 39" y2="250" transform="translate(149.847 25)" fill="none" stroke="#f4f4f4" stroke-linecap="round" stroke-width="10"/>
+    <line id="Linie_40" data-name="Linie 40" y2="250" transform="translate(274.694 149.847) rotate(90)" fill="none" stroke="#f4f4f4" stroke-linecap="round" stroke-width="10"/>
+    <path id="Pfad_5" data-name="Pfad 5" d="M-859.306,2526s33.859,176.862,67.879,176.862,68.2-176.862,68.2-176.862" transform="translate(940.822 -2482.526)" fill="none" stroke="#8bc24a" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  </g>
+</svg>
