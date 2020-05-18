@@ -315,7 +315,7 @@ table {
   vertical-align: middle;
 }
 .fraction--margin {
-  margin: 0 0.3rem;
+  margin: 0.5rem 0 0 0.3rem;
 }
 .fraction__top, .fraction__bottom {
   text-align: center;

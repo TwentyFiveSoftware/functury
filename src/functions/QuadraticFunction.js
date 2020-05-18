@@ -152,20 +152,20 @@ function QuadraticFunctionTab3() {
                         <EmptySpaceSmall/>
 
                         <Text>Beispiel:</Text>
-                        <Text>0,5x<sup>2</sup> + 4,5 = 0</Text>
+                        <Text>0,5x<sup>2</sup> - 4,5 = 0</Text>
 
                         <EmptySpaceSmall/>
 
                         <Equation equation={[
-                            [<div>0,5x<sup>2</sup> + 4,5</div>, '0', '| -4,5'],
+                            [<div>0,5x<sup>2</sup> - 4,5</div>, '0', '| +4,5'],
                             [<div>0,5x<sup>2</sup></div>, '4,5', '| ∙2'],
                             [<div>x<sup>2</sup></div>, '9', '| √'],
-                            ['x', '3', '']
+                            ['x', '±3', '']
                         ]}/>
 
                         <EmptySpaceSmall/>
 
-                        <Text>Nullstellen: x = 3</Text>
+                        <Text>Nullstellen: x<sub>1</sub> = -3; x<sub>2</sub> = 3</Text>
 
                     </Fragment>
                     <Fragment>
@@ -179,7 +179,7 @@ function QuadraticFunctionTab3() {
                         <EmptySpaceSmall/>
 
                         <Equation equation={[
-                            [<div>3x<sup>2</sup> + 6x</div>, '0', <div>| : x -> x<sub>1</sub> = 0</div>],
+                            [<div>3x<sup>2</sup> + 6x</div>, '0', <div>| :x -> x<sub>1</sub> = 0</div>],
                             [<div>3x + 6</div>, '-6', '| -6'],
                             [<div>3x</div>, '-6', '| :3'],
                             [<div>x</div>, '-2', ''],
@@ -201,24 +201,23 @@ function QuadraticFunctionTab3() {
 
                         <Equation equation={[
                             [<div>x<sub>1,2</sub></div>, <div>
-                                <Fraction top={<div>-16 ± √16<sup>2</sup> - 4∙2∙14</div>} bottom={'2∙2'}/>
+                                <Fraction top={<div>-16 ± <Sqrt>16<sup>2</sup> - 4∙2∙14</Sqrt></div>} bottom={'2∙2'}/>
                             </div>, ''],
                             [<div>x<sub>1,2</sub></div>, <div>
-                                <Fraction top={<div>-16 ± √144</div>} bottom={'4'}/>
+                                <Fraction top={<div>-16 ± <Sqrt>144</Sqrt></div>} bottom={'4'}/>
                             </div>, ''],
                             [<div>x<sub>1,2</sub></div>, <div>
                                 <Fraction top={<div>-16 ± 12</div>} bottom={'4'}/>
                             </div>, ''],
                             [<div>x<sub>1</sub></div>, <div><Fraction top={<div>-4</div>} bottom={'4'}/> = -1</div>, ''],
                             [<div>x<sub>2</sub></div>, <div>
-                                <Fraction top={<div>-16 - 12</div>} bottom={'4'}/>
+                                <Fraction top={<div>-16 - 12</div>} bottom={'4'}/> = <Fraction top={<div>-28</div>} bottom={'4'}/> = -7
                             </div>, ''],
-                            [<div>x<sub>2</sub></div>, <div><Fraction top={<div>-28</div>} bottom={'4'}/> = -7</div>, ''],
                         ]}/>
 
                         <EmptySpaceSmall/>
 
-                        <Text>Nullstellen: x<sub>1</sub> = -1; x<sub>2</sub> = -2</Text>
+                        <Text>Nullstellen: x<sub>1</sub> = -1; x<sub>2</sub> = -7</Text>
                     </Fragment>
                 </NumberedList>
             </Panel>
