@@ -7,27 +7,33 @@ import GraphTab from '../components/GraphTab';
 import {Button, EmptySpace, EmptySpaceSmall, H, Panel, Solution} from '../components/Utils';
 import svg_tab4_1 from '../assets/linearFunction/linearFunction_tab4_1.svg';
 import svg_tab4_2 from '../assets/linearFunction/linearFunction_tab4_2.svg';
-import NumberedList from "../components/NumberedList";
+import NumberedList from '../components/NumberedList';
 
 //
 
 function QuadraticFunctionTab1() {
     let sliders = [
         {
-            title: 'Steigung',
-            variable: 'm',
+            title: 'Öffnungsfaktor',
+            variable: 'a',
             min: -5, max: 5, step: 0.1,
-            F: () => <div>y = <H>m</H>x + t</div>
+            F: () => <div>y = <H>a</H>(x - d)<sup>2</sup> + e</div>
         },
         {
-            title: 'y-Achsenabschnitt',
-            variable: 't',
-            min: -10, max: 10, step: 0.25,
-            F: () => <div>y = mx + <H>t</H></div>
-        }
+            title: 'Verschiebung in x-Richtung',
+            variable: 'd',
+            min: -5, max: 5, step: 0.25,
+            F: () => <div>y = a(x - <H>d</H>)<sup>2</sup> + e</div>
+        },
+        {
+            title: 'Verschiebung in y-Richtung',
+            variable: 'e',
+            min: -5, max: 5, step: 0.25,
+            F: () => <div>y = a(x - d)<sup>2</sup> + <H>e</H></div>
+        },
     ];
 
-    return <GraphTab formula={'m * x + t'} variables={{m: 1, t: 0}} Term={(v) => <div>y = {v.m}x {v.o_t} {v.T}</div>} sliders={sliders}/>;
+    return <GraphTab formula={'a * Math.pow((x - d), 2) + e'} variables={{a: 1, d: 0, e: 0}} Term={(v) => <div>y = {v.a}(x {v.o_d === '+' ? '-' : '+'} {v.D})<sup>2</sup> {v.o_e} {v.E}</div>} sliders={sliders}/>;
 }
 
 function QuadraticFunctionTab2() {
