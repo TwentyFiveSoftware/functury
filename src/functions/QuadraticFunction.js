@@ -4,10 +4,12 @@ import Equation from '../components/Equation';
 import Fraction from '../components/Fraction';
 import Text from '../components/Text';
 import GraphTab from '../components/GraphTab';
-import {Button, EmptySpace, EmptySpaceSmall, H, Panel, Solution, Sqrt} from '../components/Utils';
-import svg_tab4_1 from '../assets/linearFunction/linearFunction_tab4_1.svg';
-import svg_tab4_2 from '../assets/linearFunction/linearFunction_tab4_2.svg';
 import NumberedList from '../components/NumberedList';
+import {Button, EmptySpace, EmptySpaceSmall, H, Panel, Solution, Sqrt} from '../components/Utils';
+
+import svg_tab2_1 from '../assets/quadraticFunction/quadraticFunction_tab2_1.svg';
+import svg_tab2_2 from '../assets/quadraticFunction/quadraticFunction_tab2_2.svg';
+import svg_tab2_3 from '../assets/quadraticFunction/quadraticFunction_tab2_3.svg';
 
 //
 
@@ -87,15 +89,15 @@ function QuadraticFunctionTab2() {
 
                 <div className='table'>
                     <div className={'table__side'}>
-                        {/*@TODO IMG!*/}
+                        <img className={'info-svg'} src={svg_tab2_3} alt={''}/>
                         <Text>Zwei Nullstellen</Text>
                     </div>
                     <div className={'table__side'}>
-                        {/*@TODO IMG!*/}
+                        <img className={'info-svg'} src={svg_tab2_1} alt={''}/>
                         <Text>Eine Nullstelle</Text>
                     </div>
                     <div className={'table__side'}>
-                        {/*@TODO IMG!*/}
+                        <img className={'info-svg'} src={svg_tab2_2} alt={''}/>
                         <Text>Keine Nullstelle</Text>
                     </div>
                 </div>
@@ -273,7 +275,7 @@ class QuadraticFunctionTab4 extends Component {
             <div className='info-page'>
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Aufgabe - 1</Text>
-                    <Text>Zeichne die Gerade f(x) = 3x - 2 und f(x) = - <Fraction top={3} bottom={4}/>x + 1 in ein Koordinatensystem. Bestimme auch die dazugehörigen Nullstellen.</Text>
+                    <Text>---</Text>
 
                     <EmptySpace/>
                     <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(0)}/>
@@ -283,37 +285,12 @@ class QuadraticFunctionTab4 extends Component {
                         <Text config={{headline: true}}>Lösung</Text>
                         <EmptySpaceSmall/>
 
-                        <div className='table table--break'>
-                            <div className={'table__side'}>
-                                <Text>f(x) = 3x - 2</Text>
-                                {/*<FunctionPlotter equation={x => 3 * x - 2} canZoom={false} id={4} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>*/}
-                                <img className={'info-svg'} src={svg_tab4_1} alt={''}/>
-
-                                <Equation equation={[
-                                    ['3x - 2', '0', '| +2'],
-                                    ['3x', '2', '| :3'],
-                                    ['x', <Fraction top={2} bottom={3}/>, ''],
-                                ]}/>
-                            </div>
-                            <div className={'table__side'}>
-                                <Text>f(x) = -<Fraction top={3} bottom={4}/>x + 1</Text>
-                                {/*<FunctionPlotter equation={x => (-3 / 4) * x + 1} canZoom={false} id={5} style={{maxWidth: '30rem'}} config={{unitScale: 1, unitSpace: 40}}/>*/}
-                                <img className={'info-svg'} src={svg_tab4_2} alt={''}/>
-
-                                <Equation equation={[
-                                    [<div>-<Fraction top={3} bottom={4}/>x + 1</div>, '0', '| -1'],
-                                    [<div>-<Fraction top={3} bottom={4}/>x</div>, '-1', <div>| :(-<Fraction top={3} bottom={4}/>)</div>],
-                                    ['x', <div>-<Fraction top={4} bottom={3}/></div>, ''],
-                                ]}/>
-                            </div>
-                        </div>
                     </Solution>
                 </Panel>
 
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Aufgabe - 2</Text>
-                    <Text>Gegeben sind die Geraden f(x) = 2x - 3 und g(x) = -0,5x + 4.</Text>
-                    <Text>Berechne den Schnittpunkt der beiden Geraden.</Text>
+                    <Text>---</Text>
 
                     <EmptySpace/>
                     <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(1)}/>
@@ -323,26 +300,6 @@ class QuadraticFunctionTab4 extends Component {
                         <Text config={{headline: true}}>Lösung</Text>
                         <EmptySpaceSmall/>
 
-                        <Equation equation={[
-                            ['f(x)', 'g(x)', ''],
-                            ['2x - 3', '-0,5 + 4', '| +3'],
-                            ['2x', '-0,5x + 7', '| +0,5x'],
-                            ['2,5x', '7', '| :2,5'],
-                            ['x', '2,8', '']
-                        ]}/>
-
-                        <EmptySpaceSmall/>
-                        <Text>x -> f(x)</Text>
-                        <EmptySpaceSmall/>
-
-                        <Equation equation={[
-                            ['f(2,8)', '2 ∙ 2,8 - 3', ''],
-                            ['', '5,6 - 3', ''],
-                            ['', '2,6', '']
-                        ]}/>
-
-                        <EmptySpace/>
-                        <Text>=> Schnittpunkt der Geraden bei S(2,8 / 2,6)</Text>
                     </Solution>
                 </Panel>
 
