@@ -31,3 +31,7 @@ export function Solution({open, children}) {
 export function H({children}) {
     return <b className='text--highlighted'>{children}</b>;
 }
+
+export function Sqrt({children}) {
+    return <span className='sqrt'>{children}</span>;
+}

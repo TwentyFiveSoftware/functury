@@ -4,7 +4,7 @@ import Equation from '../components/Equation';
 import Fraction from '../components/Fraction';
 import Text from '../components/Text';
 import GraphTab from '../components/GraphTab';
-import {Button, EmptySpace, EmptySpaceSmall, H, Panel, Solution} from '../components/Utils';
+import {Button, EmptySpace, EmptySpaceSmall, H, Panel, Solution, Sqrt} from '../components/Utils';
 import svg_tab4_1 from '../assets/linearFunction/linearFunction_tab4_1.svg';
 import svg_tab4_2 from '../assets/linearFunction/linearFunction_tab4_2.svg';
 import NumberedList from '../components/NumberedList';
@@ -106,7 +106,7 @@ function QuadraticFunctionTab2() {
                 <Text>Die Mitternachtsformel ist die allgemeine Lösungsformel für quadratische Gleichungen. Sie lautet:</Text>
 
                 <Equation center={true} equation={[[<div>x<sub>1,2</sub></div>, <div>
-                    <Fraction top={<div>-b ± √b<sup>2</sup> - 4ac</div>} bottom={'2a'}/>
+                    <Fraction top={<div>-b ± <Sqrt>b<sup>2</sup> - 4ac</Sqrt></div>} bottom={'2a'}/>
                 </div>, '']]}/>
 
                 <EmptySpace/>
@@ -125,7 +125,7 @@ function QuadraticFunctionTab2() {
                 <EmptySpace/>
 
                 <Equation center={true} equation={[[<div>x<sub>1,2</sub></div>, <div>
-                    <Fraction top={<div>-b ± √<H>b<sup>2</sup> - 4ac</H></div>} bottom={'2a'}/>
+                    <Fraction top={<div>-b ± <Sqrt><H>b<sup>2</sup> - 4ac</H></Sqrt></div>} bottom={'2a'}/>
                 </div>, '']]}/>
             </Panel>
 

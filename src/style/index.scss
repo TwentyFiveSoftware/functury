@@ -623,3 +623,33 @@ table {
         padding: 1rem;
     }
 }
+
+.sqrt {
+    position: relative;
+    margin-left: 0.8rem;
+    padding-left: 0.8rem;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 0.15rem;
+        background-color: var(--color-text-normal);
+        top: -0.2rem;
+        left: 0.3rem;
+        right: 0;
+        position: absolute;
+    }
+
+    sup {
+        font-size: 1.3rem;
+    }
+
+    &::before {
+        content: '√';
+        position: absolute;
+        font-size: 2.5rem;
+        left: -1rem;
+        top: -0.3rem;
+    }
+}

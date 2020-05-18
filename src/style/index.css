@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900&display=swap");
 :root {
   --color-white: #fff;
@@ -500,6 +501,33 @@ table {
   .info-svg {
     padding: 1rem;
   }
+}
+
+.sqrt {
+  position: relative;
+  margin-left: 0.8rem;
+  padding-left: 0.8rem;
+}
+.sqrt::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.15rem;
+  background-color: var(--color-text-normal);
+  top: -0.2rem;
+  left: 0.3rem;
+  right: 0;
+  position: absolute;
+}
+.sqrt sup {
+  font-size: 1.3rem;
+}
+.sqrt::before {
+  content: "√";
+  position: absolute;
+  font-size: 2.5rem;
+  left: -1rem;
+  top: -0.3rem;
 }
 
 /*# sourceMappingURL=index.css.map */
