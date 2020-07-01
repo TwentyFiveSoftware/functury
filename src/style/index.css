@@ -308,6 +308,9 @@ table {
 .text--dark {
   color: var(--color-text-dark);
 }
+.text--small-height {
+  line-height: 0.5;
+}
 
 .fraction {
   width: max-content;

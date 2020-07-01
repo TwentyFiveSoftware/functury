@@ -257,6 +257,69 @@ function QuadraticFunctionTab3() {
                     </Fragment>
                 </NumberedList>
             </Panel>
+
+            <Panel largePadding={true}>
+                <Text config={{headline: true}}>Allgemeine Form in Scheitelpunktform umwandeln</Text>
+                <EmptySpaceSmall/>
+                <Text>Beispiel:</Text>
+                <Text>f(x) = 1,5x<sup>2</sup> - 3x + 6</Text>
+
+                <NumberedList>
+                    <Fragment>
+                        <Text config={{smallHeight: true}}>Vorfaktor von x<sup>2</sup> ausklammern</Text>
+                        <Equation center={true} equation={[
+                            ['f(x)', <div>1,5x<sup>2</sup> - 3x + 6</div>, ''],
+                            ['', <div>1,5(x<sup>2</sup> - 2x + 4)</div>, ''],
+                        ]}/>
+
+                    </Fragment>
+                    <Fragment>
+                        <Text>Zweiten Teil der binomischen Formel (b) ermitteln</Text>
+                        <Equation center={true} equation={[
+                            ['f(x)', <div>1,5(x<sup>2</sup> - 2∙1∙x + 4)</div>, ''],
+                        ]}/>
+                        <EmptySpaceSmall/>
+                        <Text>-> Binomsiche Formel: a = 2; b = 1</Text>
+
+                    </Fragment>
+                    <Fragment>
+                        <Text>Quadratisch ergänzen, damit die bionmische Formel angewendet werden kann</Text>
+                        <Equation center={true} equation={[
+                            ['f(x)', <div>1,5(x<sup>2</sup> - 2∙1∙x + 1<sup>2</sup> - 1<sup>2</sup> + 4)</div>, ''],
+                        ]}/>
+
+                    </Fragment>
+                    <Fragment>
+                        <Text>Binomische Formel anwenden</Text>
+                        <Equation center={true} equation={[
+                            ['f(x)', <div>1,5[(x - 1)<sup>2</sup> - 1<sup>2</sup> + 4]</div>, ''],
+                        ]}/>
+                        <EmptySpaceSmall/>
+                        <Text>(2. Binomische Formel: (a - b)<sup>2</sup> = a<sup>2</sup> - 2∙a∙b + b<sup>2</sup>)</Text>
+
+                    </Fragment>
+                    <Fragment>
+                        <Text>Zusammenfassen</Text>
+                        <Equation center={true} equation={[
+                            ['f(x)', <div>1,5[(x - 1)<sup>2</sup> + 3]</div>, ''],
+                        ]}/>
+
+                    </Fragment>
+                    <Fragment>
+                        <Text>Die äußere Klammer ausmultiplizieren</Text>
+                        <Equation center={true} equation={[
+                            ['f(x)', <div>1,5(x - 1)<sup>2</sup> + 4,5</div>, ''],
+                        ]}/>
+
+                    </Fragment>
+                </NumberedList>
+                <EmptySpace/>
+
+                <Text>Scheitelpunktform:</Text>
+                <Equation center={false} equation={[
+                    ['f(x)', <div>1,5(x - 1)<sup>2</sup> + 4,5</div>, ''],
+                ]}/>
+            </Panel>
         </div>
     );
 }
