@@ -3,9 +3,9 @@
 :root {
   --color-white: #fff;
   --color-background: #f4f4f4;
-  --color-text-light: #cccccc;
-  --color-text-normal: #bbbbbb;
-  --color-text-dark: #707070;
+  --color-text-light: #bbbbbb;
+  --color-text-normal: #707070;
+  --color-text-dark: #000000;
   --color-text-accent: #8bc24a;
   --shadow: 0 0 0.3rem rgba(0, 0, 0, 0.1);
 }
@@ -226,7 +226,7 @@ table {
 }
 .function-container__formula {
   font-size: 1.8rem;
-  color: var(--color-text-normal);
+  color: var(--color-text-light);
 }
 @media (min-width: 600px) {
   .function-container__formula {
@@ -293,6 +293,7 @@ table {
   color: var(--color-text-dark);
   font-size: 2rem;
   line-height: 1.5;
+  font-weight: bold;
 }
 .text--center {
   text-align: center;
@@ -304,9 +305,6 @@ table {
 .text--highlighted {
   color: var(--color-text-accent);
   font-weight: 600;
-}
-.text--dark {
-  color: var(--color-text-dark);
 }
 .text--small-height {
   line-height: 0.5;
@@ -325,8 +323,11 @@ table {
   line-height: 1;
 }
 .fraction__top {
-  border-bottom: 0.15rem solid var(--color-text-light);
+  border-bottom: 0.15rem solid var(--color-text-normal);
   padding: 0 0.2rem;
+}
+.fraction__top--light {
+  border-bottom: 0.15rem solid var(--color-text-light);
 }
 .fraction__bottom {
   padding: 0.15rem 0.2rem 0 0.2rem;
@@ -345,7 +346,7 @@ table {
   padding-top: 1.7rem;
   vertical-align: top;
   font-size: 1.8rem;
-  color: var(--color-text-dark);
+  color: var(--color-text-accent);
   font-weight: bold;
 }
 
@@ -469,18 +470,19 @@ table {
 
 .button {
   width: max-content;
-  padding: 0.5rem 3rem;
-  background-color: var(--color-text-accent);
-  border-radius: 0.5rem;
+  padding: 0.6rem 3rem;
+  background-color: white;
+  border: 0.15rem solid var(--color-text-accent);
+  border-radius: 0.7rem;
   font-size: 1.5rem;
-  color: var(--color-white);
+  color: var(--color-text-accent);
   cursor: pointer;
   user-select: none;
   transition: ease-out 0.15s;
-  box-shadow: var(--shadow);
 }
 .button:hover {
-  border-radius: 1.5rem;
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
 }
 
 .solution {

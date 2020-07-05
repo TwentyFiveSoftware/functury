@@ -5,9 +5,9 @@ $break-phone: 470px;
 :root {
     --color-white: #fff;
     --color-background: #f4f4f4;
-    --color-text-light: #cccccc;
-    --color-text-normal: #bbbbbb;
-    --color-text-dark: #707070;
+    --color-text-light: #bbbbbb;
+    --color-text-normal: #707070;
+    --color-text-dark: #000000;
     --color-text-accent: #8bc24a;
 
     --shadow: 0 0 0.3rem rgba(0, 0, 0, 0.1);
@@ -242,7 +242,7 @@ table {
 
     &__formula {
         font-size: 1.8rem;
-        color: var(--color-text-normal);
+        color: var(--color-text-light);
 
         @media (min-width: $break-tablet) {
             font-size: 2rem;
@@ -309,6 +309,7 @@ table {
         color: var(--color-text-dark);
         font-size: 2rem;
         line-height: 1.5;
+        font-weight: bold;
     }
 
     &--center {
@@ -323,10 +324,6 @@ table {
     &--highlighted {
         color: var(--color-text-accent);
         font-weight: 600;
-    }
-
-    &--dark {
-        color: var(--color-text-dark);
     }
 
     &--small-height {
@@ -349,8 +346,12 @@ table {
     }
 
     &__top {
-        border-bottom: 0.15rem solid var(--color-text-light);
+        border-bottom: 0.15rem solid var(--color-text-normal);
         padding: 0 0.2rem;
+
+        &--light {
+            border-bottom: 0.15rem solid var(--color-text-light);
+        }
     }
 
     &__bottom {
@@ -373,7 +374,7 @@ table {
                 vertical-align: top;
 
                 font-size: 1.8rem;
-                color: var(--color-text-dark);
+                color: var(--color-text-accent);
                 font-weight: bold;
             }
         }
@@ -519,18 +520,19 @@ table {
 
 .button {
     width: max-content;
-    padding: 0.5rem 3rem;
-    background-color: var(--color-text-accent);
-    border-radius: 0.5rem;
+    padding: 0.6rem 3rem;
+    background-color: white;
+    border: 0.15rem solid var(--color-text-accent);
+    border-radius: 0.7rem;
     font-size: 1.5rem;
-    color: var(--color-white);
+    color: var(--color-text-accent);
     cursor: pointer;
     user-select: none;
     transition: ease-out 0.15s;
-    box-shadow: var(--shadow);
 
     &:hover {
-        border-radius: 1.5rem;
+        border-radius: 2rem;
+        box-shadow: var(--shadow);
     }
 }
 

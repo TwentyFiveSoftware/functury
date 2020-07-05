@@ -47,12 +47,20 @@ function QuadraticFunctionTab2() {
                     parallel zur y-Achse.</Text>
 
                 <EmptySpace/>
-                <Text config={{headline: true}}>Darstellungsformen</Text>
-                <Text>Allgemeine Form:</Text>
-                <Text>f(x) = ax<sup>2</sup> + bx + c</Text>
-                <EmptySpaceSmall/>
-                <Text>Scheitelpunktform:</Text>
-                <Text>f(x) = a(x - d)<sup>2</sup> + e</Text>
+                <EmptySpace/>
+                <Text config={{semiBig: true}}><b>Darstellungsformen</b></Text>
+                <EmptySpace/>
+
+                <div className='table'>
+                    <div className={'table__side'}>
+                        <Text>Allgemeine Form:</Text>
+                        <Text config={{highlighted: true}}>f(x) = ax<sup>2</sup> + bx + c</Text>
+                    </div>
+                    <div className={'table__side'}>
+                        <Text>Scheitelpunktform:</Text>
+                        <Text config={{highlighted: true}}>f(x) = a(x - d)<sup>2</sup> + e</Text>
+                    </div>
+                </div>
             </Panel>
 
             <Panel largePadding={true}>
@@ -87,18 +95,21 @@ function QuadraticFunctionTab2() {
                 <Text config={{headline: true}}>Nullstellen</Text>
                 <Text>Parabeln können je nach Verschiebung und Spiegelung zwei, eine oder keine Nullstellen besitzen.</Text>
 
+                <EmptySpace/>
+                <EmptySpace/>
+
                 <div className='table'>
                     <div className={'table__side'}>
+                        <Text config={{semiBig: true}}>Zwei Nullstellen</Text>
                         <img className={'info-svg'} src={svg_tab2_3} alt={''}/>
-                        <Text>Zwei Nullstellen</Text>
                     </div>
                     <div className={'table__side'}>
+                        <Text config={{semiBig: true}}>Eine Nullstelle</Text>
                         <img className={'info-svg'} src={svg_tab2_1} alt={''}/>
-                        <Text>Eine Nullstelle</Text>
                     </div>
                     <div className={'table__side'}>
+                        <Text config={{semiBig: true}}>Keine Nullstelle</Text>
                         <img className={'info-svg'} src={svg_tab2_2} alt={''}/>
-                        <Text>Keine Nullstelle</Text>
                     </div>
                 </div>
             </Panel>
@@ -149,9 +160,8 @@ function QuadraticFunctionTab3() {
 
                 <NumberedList>
                     <Fragment>
-                        <Text><b>ax<sup>2</sup> + c = 0</b></Text>
-
-                        <EmptySpaceSmall/>
+                        <Text config={{smallHeight: true}}><b>ax<sup>2</sup> + c = 0</b></Text>
+                        <EmptySpace/>
 
                         <Text>Beispiel:</Text>
                         <Text>0,5x<sup>2</sup> - 4,5 = 0</Text>
@@ -171,9 +181,8 @@ function QuadraticFunctionTab3() {
 
                     </Fragment>
                     <Fragment>
-                        <Text><b>ax<sup>2</sup> + bx = 0</b></Text>
-
-                        <EmptySpaceSmall/>
+                        <Text config={{smallHeight: true}}><b>ax<sup>2</sup> + bx = 0</b></Text>
+                        <EmptySpace/>
 
                         <Text>Beispiel:</Text>
                         <Text>3x<sup>2</sup> + 6x = 0</Text>
@@ -191,10 +200,9 @@ function QuadraticFunctionTab3() {
 
                         <Text>Nullstellen: x<sub>1</sub> = 0; x<sub>2</sub> = -2</Text>
                     </Fragment>
-                    <Fragment>
+                    <Fragment config={{smallHeight: true}}>
                         <Text><b>ax<sup>2</sup> + bx + c = 0</b></Text>
-
-                        <EmptySpaceSmall/>
+                        <EmptySpace/>
 
                         <Text>Beispiel:</Text>
                         <Text>2x<sup>2</sup> + 16x + 14 = 0</Text>

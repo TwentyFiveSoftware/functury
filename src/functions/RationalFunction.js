@@ -183,9 +183,9 @@ class RationalFunctionTab4 extends Component {
             <div className='info-page'>
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Aufgabe - 1</Text>
-                    <Text>Gebe die Funktionsterme der Graphen an.</Text>
+                    <Text>Gib die Funktionsterme der Graphen an.</Text>
 
-                    <img className={'info-svg'} src={svg_tab4_1} alt={''}/>
+                    <img className={'info-svg'} src={svg_tab4_1} alt={''} style={{maxWidth: '40rem'}}/>
 
                     <EmptySpace/>
                     <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(0)}/>
@@ -241,7 +241,7 @@ class RationalFunctionTab4 extends Component {
 
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Aufgabe - 3</Text>
-                    <Text>Berechne jeweils die Nullstelle(n).</Text>
+                    <Text>Gib jeweils die Nullstelle(n) an.</Text>
                     <EmptySpace/>
 
                     <Text>a) f(x) = <Fraction top={'1'} bottom={'x'}/></Text>

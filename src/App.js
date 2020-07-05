@@ -37,7 +37,7 @@ export default class App extends Component {
             {
                 id: 'rational-function',
                 name: 'Gebrochenrationale Funktionen',
-                formula: <div>y = <Fraction top={'a'} bottom={'x + b'}/> + c</div>,
+                formula: <div>y = <Fraction light={true} top={'a'} bottom={'x + b'}/> + c</div>,
                 svg: <RationalFunctionSVG/>,
                 grade: 8,
                 tabs: RationalFunction

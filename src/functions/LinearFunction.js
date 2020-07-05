@@ -80,21 +80,6 @@ function LinearFunctionTab2() {
                     </tr>
                     </tbody>
                 </table>
-
-                {/*<div className='table'>*/}
-                {/*    <div className={'table__side'}>*/}
-                {/*        <Text config={{semiBig: true}}>Steigende Gerade</Text>*/}
-                {/*        <img className={'info-svg'} src={svg_tab2_3} alt={''}/>*/}
-                {/*        /!*<FunctionPlotter equation={x => x} canZoom={false} id={3} style={{maxWidth: '30rem'}}/>*!/*/}
-                {/*        <Text>Bei <b>positiver</b> Steigung</Text>*/}
-                {/*    </div>*/}
-                {/*    <div className={'table__side'}>*/}
-                {/*        <Text config={{semiBig: true}}>Fallende Gerade</Text>*/}
-                {/*        <img className={'info-svg'} src={svg_tab2_4} alt={''}/>*/}
-                {/*        /!*<FunctionPlotter equation={x => -x} canZoom={false} id={4} style={{maxWidth: '30rem'}}/>*!/*/}
-                {/*        <Text>Bei <b>negativer</b> Steigung</Text>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </Panel>
         </div>
     );
