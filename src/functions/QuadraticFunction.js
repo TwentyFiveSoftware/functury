@@ -333,7 +333,7 @@ function QuadraticFunctionTab3() {
 }
 
 class QuadraticFunctionTab4 extends Component {
-    state = {solutions: [false, false]};
+    state = {solutions: [false]};
 
     toggleSolution = index => {
         let {solutions} = this.state;
@@ -346,31 +346,36 @@ class QuadraticFunctionTab4 extends Component {
             <div className='info-page'>
                 <Panel largePadding={true}>
                     <Text config={{headline: true}}>Aufgabe - 1</Text>
-                    <Text>---</Text>
+                    <Text>Berechne jeweils die Nullstelle(n).</Text>
+                    <EmptySpace/>
+
+                    <Text>a) f(x) = x<sup>2</sup> - 3x - 40</Text>
+                    <EmptySpaceSmall/>
+                    <Text>b) f(x) = 0,5x<sup>2</sup> - 4x + 6</Text>
+                    <EmptySpaceSmall/>
+                    <Text>c) f(x) = x<sup>2</sup> + 3x + 2</Text>
+                    <EmptySpaceSmall/>
+                    <Text>d) f(x) = x<sup>2</sup> + 11x + 30</Text>
+                    <EmptySpaceSmall/>
+                    <Text>e) f(x) = 3x<sup>2</sup> + 9x + 6</Text>
+                    <EmptySpaceSmall/>
 
                     <EmptySpace/>
-                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(0)}/>
+                    <Button title={'Lösungen anzeigen'} click={() => this.toggleSolution(0)}/>
                     <EmptySpace/>
 
                     <Solution open={this.state.solutions[0]}>
-                        <Text config={{headline: true}}>Lösung</Text>
+                        <Text config={{headline: true}}>Lösungen</Text>
                         <EmptySpaceSmall/>
-
-                    </Solution>
-                </Panel>
-
-                <Panel largePadding={true}>
-                    <Text config={{headline: true}}>Aufgabe - 2</Text>
-                    <Text>---</Text>
-
-                    <EmptySpace/>
-                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(1)}/>
-                    <EmptySpace/>
-
-                    <Solution open={this.state.solutions[1]}>
-                        <Text config={{headline: true}}>Lösung</Text>
+                        <Text>a) x<sub>1</sub> = -5; x<sub>2</sub> = 8</Text>
                         <EmptySpaceSmall/>
-
+                        <Text>b) x<sub>1</sub> = 2; x<sub>2</sub> = 6</Text>
+                        <EmptySpaceSmall/>
+                        <Text>c) x<sub>1</sub> = -1; x<sub>2</sub> = -2</Text>
+                        <EmptySpaceSmall/>
+                        <Text>d) x<sub>1</sub> = -6; x<sub>2</sub> = -5</Text>
+                        <EmptySpaceSmall/>
+                        <Text>e) x<sub>1</sub> = -2; x<sub>2</sub> = -1</Text>
                     </Solution>
                 </Panel>
 

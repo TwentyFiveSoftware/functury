@@ -219,7 +219,7 @@ class RationalFunctionTab4 extends Component {
                     <Text>f) k(x) = <Fraction top={'25'} bottom={<div>(x + 3)<sup>2</sup></div>}/> + 3</Text>
 
                     <EmptySpace/>
-                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(1)}/>
+                    <Button title={'Lösungen anzeigen'} click={() => this.toggleSolution(1)}/>
                     <EmptySpace/>
 
                     <Solution open={this.state.solutions[1]}>
@@ -257,7 +257,7 @@ class RationalFunctionTab4 extends Component {
                     <Text>f) k(x) = <Fraction top={'0,5x∙(x + 1)∙(x - 3)'} bottom={'x + 2'}/></Text>
 
                     <EmptySpace/>
-                    <Button title={'Lösung anzeigen'} click={() => this.toggleSolution(2)}/>
+                    <Button title={'Lösungen anzeigen'} click={() => this.toggleSolution(2)}/>
                     <EmptySpace/>
 
                     <Solution open={this.state.solutions[2]}>
