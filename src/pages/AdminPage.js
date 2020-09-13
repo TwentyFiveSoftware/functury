@@ -76,7 +76,7 @@ export default class AdminPage extends Component {
                                 <div className={'admin-function-list-item__name'}>{f.name}</div>
                                 <div className={'admin-function-list-item__formula'}><MarkdownRender source={`$${f.formula}$`}/></div>
                                 <div className={'admin-function-list-item__button'} onClick={() => this.editContentOfFunction(f.id)}>Inhalt</div>
-                                <div className={'admin-function-list-item__button'}>Bearbeiten</div>
+                                <Link className={'admin-function-list-item__button'} to={`/admin/edit/${f.id}`}>Bearbeiten</Link>
                                 <div className={'admin-function-list-item__button'} onClick={() => this.deleteFunction(f.id)}>Löschen</div>
                             </div>
                         )}

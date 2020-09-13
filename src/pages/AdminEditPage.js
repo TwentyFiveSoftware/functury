@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Header from '../components/Header';
 import firebase from '../firebase/firebase';
-import FunctionForm from "../components/FunctionForm";
+import FunctionForm from '../components/FunctionForm';
 
-export default class AdminAddPage extends Component {
+export default class AdminEditPage extends Component {
     state = {
         redirect: '',
 
@@ -17,26 +17,39 @@ export default class AdminAddPage extends Component {
     }
 
     save = async () => {
-        const doc = await firebase.firestore().collection('content').doc(this.state.id).get();
-        if (doc.exists) {
-            alert(`Es existiert bereits eine Funktion mit der ID '${this.state.id}' - bitte eine andere wählen!`);
-            return;
-        }
-
         const data = {
             name: this.state.name,
             formula: this.state.formula,
             icon: this.state.icon,
-            content: '',
             desmos: {
                 formula: this.state.desmosFormula,
                 slider: this.state.desmosSlider.split(';')
             }
         }
 
-        await firebase.firestore().collection('content').doc(this.state.id).set(data);
+        await firebase.firestore().collection('content').doc(this.state.id).update(data);
 
         this.setState({redirect: '/'});
+    }
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+
+        const load = async () => {
+            const doc = await firebase.firestore().collection('content').doc(id).get();
+
+            if (!doc.exists) {
+                this.setState({redirect: '/'});
+                return;
+            }
+
+            const {name, desmos, formula, icon} = doc.data();
+            this.setState({
+                id, name, formula, icon, desmosFormula: desmos.formula, desmosSlider: desmos.slider.join(';')
+            });
+        }
+
+        load();
     }
 
     render() {
@@ -53,7 +66,9 @@ export default class AdminAddPage extends Component {
                         <div className={'action-bar__button'} onClick={() => this.save()}>Speichern</div>
                     </div>
 
-                    <FunctionForm title={'Neue Funktion erstellen'} onChange={delta => this.setState(delta)}/>
+                    {this.state.id !== '' &&
+                    <FunctionForm title={'Funktion bearbeiten'} lockId={true} onChange={delta => this.setState(delta)} initialValues={this.state}/>
+                    }
                 </div>
             </div>
         );

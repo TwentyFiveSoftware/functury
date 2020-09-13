@@ -8,6 +8,7 @@ import MainPage from './pages/MainPage';
 import FunctionPage from './pages/FunctionPage';
 import AdminPage from './pages/AdminPage';
 import AdminAddPage from './pages/AdminAddPage';
+import AdminEditPage from './pages/AdminEditPage';
 
 export default class App extends Component {
     state = {
@@ -40,6 +41,7 @@ export default class App extends Component {
 
                     <Route path='/admin' exact component={props => <AdminPage functions={this.state.functions} {...props} />}/>
                     <Route path='/admin/add' component={props => <AdminAddPage functions={this.state.functions} {...props} />}/>
+                    <Route path='/admin/edit/:id' component={props => <AdminEditPage {...props} />}/>
 
                     <Redirect to='/'/>
                 </Switch>
