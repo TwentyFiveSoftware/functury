@@ -47,6 +47,14 @@ export default class AdminPage extends Component {
         });
     }
 
+    deleteFunction = async id => {
+        if (!window.confirm(`Soll die Funktion mit der ID '${id}' wiklich gelöscht werden?`))
+            return;
+
+        await firebase.firestore().collection('content').doc(id).delete();
+        window.location.reload();
+    }
+
     render() {
         if (this.state.redirect !== '')
             return <Redirect to={this.state.redirect}/>;
@@ -69,7 +77,7 @@ export default class AdminPage extends Component {
                                 <div className={'admin-function-list-item__formula'}><MarkdownRender source={`$${f.formula}$`}/></div>
                                 <div className={'admin-function-list-item__button'} onClick={() => this.editContentOfFunction(f.id)}>Inhalt</div>
                                 <div className={'admin-function-list-item__button'}>Bearbeiten</div>
-                                <div className={'admin-function-list-item__button'}>Löschen</div>
+                                <div className={'admin-function-list-item__button'} onClick={() => this.deleteFunction(f.id)}>Löschen</div>
                             </div>
                         )}
                     </div>
