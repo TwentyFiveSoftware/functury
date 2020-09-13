@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Desmos from 'desmos';
-import MarkdownRender from '../components/new/MarkdownRender';
-import Header from '../components/new/Header';
+import MarkdownRender from '../components/MarkdownRender';
+import Header from '../components/Header';
 import firebase from '../firebase/firebase';
 
 export default class FunctionPage extends Component {

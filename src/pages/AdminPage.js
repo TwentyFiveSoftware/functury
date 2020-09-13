@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Stackedit from 'stackedit-js';
-import Header from '../components/new/Header';
 import firebase from '../firebase/firebase';
+import Header from '../components/Header';
 
 export default class AdminPage extends Component {
     state = {
