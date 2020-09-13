@@ -2,18 +2,26 @@ import React, {Component} from 'react';
 import Desmos from 'desmos';
 import MarkdownRender from '../components/MarkdownRender';
 import Header from '../components/Header';
+import {Redirect} from 'react-router-dom';
 import firebase from '../firebase/firebase';
 
 export default class FunctionPage extends Component {
     state = {
         name: '',
         content: '',
+        redirect: false,
         headlines: []
     }
 
     componentDidMount() {
         const load = async () => {
             const doc = await firebase.firestore().collection('content').doc(this.props.match.params.id).get();
+
+            if (!doc.exists) {
+                this.setState({redirect: true});
+                return;
+            }
+
             const {name, desmos, content} = doc.data();
             this.setState({name, content: content.replace(/\n/g, '\n\n')});
 
@@ -33,13 +41,21 @@ export default class FunctionPage extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.state.headlines.length > 0) return;
 
-        const headlines = document.querySelector('.content').querySelectorAll('h2');
+        const contentElement = document.querySelector('.content');
+
+        if (contentElement === null)
+            return;
+
+        const headlines = contentElement.querySelectorAll('h2');
 
         if (headlines.length > 0)
             this.setState({headlines: [...headlines]});
     }
 
     render() {
+        if (this.state.redirect)
+            return <Redirect to={'/'}/>;
+
         return (
             <div className={'page'}>
                 <Header/>

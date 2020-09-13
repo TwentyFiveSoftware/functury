@@ -21,7 +21,7 @@ export default class App extends Component {
 
             docs.forEach(doc => {
                 const {name, icon, formula, content, desmos} = doc.data();
-                functions.push({id: doc.id, name, icon, formula, content, desmos});
+                functions.push({id: doc.id, name, icon, formula, desmos, content});
             });
 
             this.setState({functions});
@@ -35,7 +35,7 @@ export default class App extends Component {
             <Router>
                 <Switch>
                     <Route path='/' exact component={props => <MainPage functions={this.state.functions} {...props} />}/>
-                    <Route path='/function/:id' component={props => <FunctionPage functions={this.state.functions} {...props} />}/>
+                    <Route path='/function/:id' component={props => <FunctionPage {...props} />}/>
                     <Route path='/admin' component={props => <AdminPage functions={this.state.functions} {...props} />}/>
                     <Redirect to='/'/>
                 </Switch>
