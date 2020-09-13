@@ -1,4 +1,5 @@
 import app from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/firestore';
 
 const config = {
@@ -12,6 +13,7 @@ const config = {
 };
 
 app.initializeApp(config);
+app.auth();
 app.firestore();
 
 export default app;

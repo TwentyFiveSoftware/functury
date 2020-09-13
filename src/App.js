@@ -3,12 +3,14 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom
 import './style/index.css';
 
 import firebase from './firebase/firebase';
+import ProtectedRoute from './components/ProtectedRoute';
 
 import MainPage from './pages/MainPage';
 import FunctionPage from './pages/FunctionPage';
 import AdminPage from './pages/AdminPage';
 import AdminAddPage from './pages/AdminAddPage';
 import AdminEditPage from './pages/AdminEditPage';
+import AdminAuthPage from './pages/AdminAuthPage';
 
 export default class App extends Component {
     state = {
@@ -39,9 +41,11 @@ export default class App extends Component {
                     <Route path='/' exact component={props => <MainPage functions={this.state.functions} {...props} />}/>
                     <Route path='/function/:id' component={props => <FunctionPage {...props} />}/>
 
-                    <Route path='/admin' exact component={props => <AdminPage functions={this.state.functions} {...props} />}/>
-                    <Route path='/admin/add' component={props => <AdminAddPage functions={this.state.functions} {...props} />}/>
-                    <Route path='/admin/edit/:id' component={props => <AdminEditPage {...props} />}/>
+                    <ProtectedRoute path='/admin' exact component={props => <AdminPage functions={this.state.functions} {...props}/>}/>
+                    <ProtectedRoute path='/admin/add' component={props => <AdminAddPage functions={this.state.functions} {...props} />}/>
+                    <ProtectedRoute path='/admin/edit/:id' component={props => <AdminEditPage {...props} />}/>
+
+                    <Route path='/auth' component={props => <AdminAuthPage {...props} />}/>
 
                     <Redirect to='/'/>
                 </Switch>
