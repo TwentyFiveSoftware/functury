@@ -4,6 +4,7 @@ import './style/index.css';
 
 import FrontPage from './pages/FrontPage';
 import FunctionPage from './pages/FunctionPage';
+import AdminPage from './pages/AdminPage';
 
 import Fraction from './components/Fraction';
 
@@ -59,6 +60,7 @@ export default class App extends Component {
                 <Switch>
                     <Route path='/' exact component={props => <FrontPage functions={this.state.functions} {...props} />}/>
                     <Route path='/function/:id' component={props => <FunctionPage functions={this.state.functions} {...props} />}/>
+                    <Route path='/admin' component={props => <AdminPage {...props} />}/>
                     <Redirect to='/'/>
                 </Switch>
             </Router>

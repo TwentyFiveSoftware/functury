@@ -1,71 +1,75 @@
-import React, { Component } from 'react';
-import { Redirect, Switch, Route } from 'react-router-dom';
-
-import TopBar from '../components/TopBar';
+import React, {Component} from 'react';
+import Desmos from 'desmos';
+import MarkdownRender from '../components/new/MarkdownRender';
+import Header from '../components/new/Header';
+import firebase from '../firebase/firebase';
 
 export default class FunctionPage extends Component {
-    render() {
-        let f = this.props.functions.find(f => f.id === this.props.match.params.id);
-
-        if (f !== undefined)
-            return (
-                <div className='page page--function-page'>
-                    <Switch>
-                        <Route path={`${this.props.match.url}/1`} component={props => <Tab1 {...props} func={f} />} />
-                        <Route path={`${this.props.match.url}/2`} component={props => <Tab2 {...props} func={f} />} />
-                        <Route path={`${this.props.match.url}/3`} component={props => <Tab3 {...props} func={f} />} />
-                        <Route path={`${this.props.match.url}/4`} component={props => <Tab4 {...props} func={f} />} />
-
-                        <Redirect to={`${this.props.match.url}/1`} />
-                    </Switch>
-                </div>
-            );
-
-        else return <Redirect to='/' />
+    state = {
+        name: '',
+        content: '',
+        headlines: []
     }
-}
 
+    componentDidMount() {
+        const load = async () => {
+            const doc = await firebase.firestore().collection('content').doc(this.props.match.params.id).get();
+            const {name, desmos, content} = doc.data();
+            this.setState({name, content: content.replace(/\n/g, '\n\n')});
 
-function Tab1({ func }) {
-    return (
-        <div>
-            <TopBar page='function' func={func} tab={'1'} />
+            // DESMOS
+            const desmosElement = document.querySelector('.desmos');
+            const calculator = Desmos.GraphingCalculator(desmosElement,
+                {keypad: false, settingsMenu: false, expressionsTopbar: false, border: true, images: false, folders: false, notes: false, links: false});
+            calculator.setExpression({latex: desmos.formula, color: '#96C178'});
 
-            {/* Graph */}
-            {func.tabs[0]}
-        </div>
-    );
-}
+            for (let slider of desmos.slider)
+                calculator.setExpression({latex: slider});
+        }
 
-function Tab2({ func }) {
-    return (
-        <div>
-            <TopBar page='function' func={func} tab={'2'} />
+        load();
+    }
 
-            {/* Besonderheiten */}
-            {func.tabs[1]}
-        </div>
-    );
-}
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.headlines.length > 0) return;
 
-function Tab3({ func }) {
-    return (
-        <div>
-            <TopBar page='function' func={func} tab={'3'} />
+        const headlines = document.querySelector('.content').querySelectorAll('h2');
 
-            {/* Berechnung */}
-            {func.tabs[2]}
-        </div>
-    );
-}
+        if (headlines.length > 0)
+            this.setState({headlines: [...headlines]});
+    }
 
-function Tab4({ func }) {
-    return (
-        <div>
-            <TopBar page='function' func={func} tab={'4'} />
+    render() {
+        return (
+            <div className={'page'}>
+                <Header/>
 
-            {/* Aufgaben */}
-            {func.tabs[3]}
-        </div>
-    );
+                <div className={'content'}>
+                    <h1 className={'title'}>{this.state.name}</h1>
+
+                    <div className={'desmos'}/>
+
+                    <div className={'navigation'}>
+                        <div className={'navigation__title'}>INHALT</div>
+                        {this.state.headlines.map((link, index) =>
+                            <div key={index} className={'navigation-item'} onClick={() => window.scrollTo(0, link.getBoundingClientRect().top)}>
+                                {link.textContent}
+                            </div>
+                        )}
+                    </div>
+
+                    <MarkdownRender source={this.state.content}/>
+                </div>
+
+                <div className={'sidebar'}>
+                    <div className={'sidebar__title'}>INHALT</div>
+                    {this.state.headlines.map((link, index) =>
+                        <div key={index} className={'navigation-item'} onClick={() => window.scrollTo(0, link.getBoundingClientRect().top)}>
+                            {link.textContent}
+                        </div>
+                    )}
+                </div>
+            </div>
+        );
+    }
 }
