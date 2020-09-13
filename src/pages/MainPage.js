@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import MarkdownRender from '../components/MarkdownRender';
 
 export default class MainPage extends Component {
     render() {
@@ -10,7 +11,7 @@ export default class MainPage extends Component {
                         <img src={f.icon} alt={''}/>
                         <div className='function-container__info'>
                             <div className='function-container__name'>{f.name}</div>
-                            <div className='function-container__formula'>{f.formula}</div>
+                            <div className='function-container__formula'><MarkdownRender source={`$${f.formula}$`}/></div>
                         </div>
                     </Link>
                 )))}

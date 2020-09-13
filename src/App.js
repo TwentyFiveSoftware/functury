@@ -7,6 +7,7 @@ import firebase from './firebase/firebase';
 import MainPage from './pages/MainPage';
 import FunctionPage from './pages/FunctionPage';
 import AdminPage from './pages/AdminPage';
+import AdminAddPage from './pages/AdminAddPage';
 
 export default class App extends Component {
     state = {
@@ -36,7 +37,10 @@ export default class App extends Component {
                 <Switch>
                     <Route path='/' exact component={props => <MainPage functions={this.state.functions} {...props} />}/>
                     <Route path='/function/:id' component={props => <FunctionPage {...props} />}/>
-                    <Route path='/admin' component={props => <AdminPage functions={this.state.functions} {...props} />}/>
+
+                    <Route path='/admin' exact component={props => <AdminPage functions={this.state.functions} {...props} />}/>
+                    <Route path='/admin/add' component={props => <AdminAddPage functions={this.state.functions} {...props} />}/>
+
                     <Redirect to='/'/>
                 </Switch>
             </Router>
