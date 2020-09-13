@@ -17,21 +17,23 @@ export default class App extends Component {
         functions: []
     }
 
+    loadFunctions = async () => {
+        const docs = await firebase.firestore().collection('content').get();
+
+        const functions = [];
+
+        docs.forEach(doc => {
+            const {name, icon, formula, content, desmos, index} = doc.data();
+            functions.push({id: doc.id, name, icon, formula, desmos, content, index});
+        });
+
+        functions.sort((a, b) => a.index > b.index ? 1 : -1);
+
+        this.setState({functions});
+    }
+
     componentDidMount() {
-        const load = async () => {
-            const docs = await firebase.firestore().collection('content').get();
-
-            const functions = [];
-
-            docs.forEach(doc => {
-                const {name, icon, formula, content, desmos} = doc.data();
-                functions.push({id: doc.id, name, icon, formula, desmos, content});
-            });
-
-            this.setState({functions});
-        }
-
-        load();
+        this.loadFunctions();
     }
 
     render() {
@@ -41,7 +43,7 @@ export default class App extends Component {
                     <Route path='/' exact component={props => <MainPage functions={this.state.functions} {...props} />}/>
                     <Route path='/function/:id' component={props => <FunctionPage {...props} />}/>
 
-                    <ProtectedRoute path='/admin' exact component={props => <AdminPage functions={this.state.functions} {...props}/>}/>
+                    <ProtectedRoute path='/admin' exact component={props => <AdminPage functions={this.state.functions} loadFunctions={() => this.loadFunctions()} {...props}/>}/>
                     <ProtectedRoute path='/admin/add' component={props => <AdminAddPage functions={this.state.functions} {...props} />}/>
                     <ProtectedRoute path='/admin/edit/:id' component={props => <AdminEditPage {...props} />}/>
 
