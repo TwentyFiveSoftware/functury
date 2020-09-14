@@ -23,6 +23,8 @@ export default class AdminAddPage extends Component {
             return;
         }
 
+        const index = (await firebase.firestore().collection('content').get()).docs.length;
+
         const data = {
             name: this.state.name,
             formula: this.state.formula,
@@ -31,7 +33,8 @@ export default class AdminAddPage extends Component {
             desmos: {
                 formula: this.state.desmosFormula,
                 slider: this.state.desmosSlider.split(';')
-            }
+            },
+            index
         }
 
         await firebase.firestore().collection('content').doc(this.state.id).set(data);
