@@ -200,6 +200,7 @@ html {
   flex-wrap: wrap;
   padding: 3rem;
   background-color: #FAFAFA;
+  align-content: flex-start;
 }
 .main-page .function-container {
   width: max-content;
