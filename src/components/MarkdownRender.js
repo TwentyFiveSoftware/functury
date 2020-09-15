@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import MathJax from 'react-mathjax';
 import RemarkMathPlugin from 'remark-math';
+import emoji from 'emoji-dictionary';
 
 export default function MarkdownRender(props) {
     const newProps = {
@@ -9,6 +10,7 @@ export default function MarkdownRender(props) {
         plugins: [
             RemarkMathPlugin,
         ],
+        source: props.source.replace(/:\w+:/gi, name => emoji.getUnicode(name)),
         renderers: {
             ...props.renderers,
             math: (props) =>
