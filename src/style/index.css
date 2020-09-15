@@ -126,6 +126,9 @@ html {
 .content hr {
   margin: 3.5rem 0;
 }
+.content img {
+  max-width: 100%;
+}
 
 .desmos {
   width: 100%;
@@ -202,6 +205,16 @@ html {
   background-color: #FAFAFA;
   align-content: flex-start;
 }
+@media (max-width: 600px) {
+  .main-page {
+    padding: 2rem;
+  }
+}
+@media (max-width: 400px) {
+  .main-page {
+    padding: 0;
+  }
+}
 .main-page .function-container {
   width: max-content;
   height: max-content;
@@ -216,6 +229,11 @@ html {
   flex-direction: column;
   row-gap: 1.5rem;
   align-items: center;
+}
+@media (max-width: 600px) {
+  .main-page .function-container {
+    width: 100%;
+  }
 }
 .main-page .function-container:hover {
   transform: scale(1.015);
