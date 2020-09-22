@@ -131,6 +131,22 @@ html {
 }
 .content p {
   white-space: pre-wrap;
+  margin-top: 2rem;
+}
+.content p del {
+  text-decoration: line-through;
+}
+.content table {
+  border-collapse: collapse;
+}
+.content table th, .content table tr:not(:last-child) > td {
+  border-bottom: 0.1rem solid var(--color-divider);
+}
+.content table th:not(:last-child), .content table td:not(:last-child) {
+  border-right: 0.1rem solid var(--color-divider);
+}
+.content table th, .content table td {
+  padding: 0.5rem 2.5rem;
 }
 
 .desmos {
