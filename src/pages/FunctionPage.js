@@ -23,7 +23,7 @@ export default class FunctionPage extends Component {
             }
 
             const {name, desmos, content} = doc.data();
-            this.setState({name, content: content.replace(/\n/g, '\n\n')});
+            this.setState({name, content});
 
             // DESMOS
             const desmosElement = document.querySelector('.desmos');

@@ -129,6 +129,9 @@ html {
 .content img {
   max-width: 100%;
 }
+.content p {
+  white-space: pre-wrap;
+}
 
 .desmos {
   width: 100%;
