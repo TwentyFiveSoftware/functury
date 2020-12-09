@@ -147,6 +147,12 @@ html {
 
     table {
         border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+
+        * {
+            overflow: hidden;
+        }
 
         th, tr:not(:last-child) > td {
             border-bottom: 0.1rem solid var(--color-divider);
